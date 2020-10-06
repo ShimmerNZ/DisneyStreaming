@@ -8,6 +8,7 @@
 #!/usr/bin/python3
 from gpiozero import CPUTemperature
 from tkinter import ttk
+from PIL import Image,ImageTK
 import time
 import tkinter as tk
 import speedify
@@ -123,7 +124,7 @@ class Mainframe(tk.Frame):
         progress2.config(mode='determinate')
 
         #slap in a logo here
-        img3=tk.PhotoImage(file='Brianlogo.png').resize(100,100)
+        img3=tk.PhotoImage(Image.open('Brianlogo.png').resize(100,100))
         lbl=tk.Label(self, image=img3, bg='#0b0c1b')
         lbl.image = img3
         lbl.grid(row=22, column=0, columnspan=4, rowspan=2)
