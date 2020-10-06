@@ -124,11 +124,11 @@ class Mainframe(tk.Frame):
         progress2.config(mode='determinate')
 
         #slap in a logo here
-        img3=Image.open('Brianlogo.png').resize((100,100))
-        img=ImageTk.PhotoImage(img3)
+        img3=Image.open('Brianlogo.png').resize((80,80))
+        img3=ImageTk.PhotoImage(img3)
         lbl=tk.Label(self, image=img3, bg='#0b0c1b')
         lbl.image = img3
-        lbl.grid(row=22, column=0, columnspan=4, rowspan=2)
+        lbl.grid(row=22, column=1, columnspan=2, rowspan=2)
 
         #variable time
         self.TimerInterval = 1000
