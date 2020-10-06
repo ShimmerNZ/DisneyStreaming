@@ -199,12 +199,16 @@ class Mainframe(tk.Frame):
         if StateStr == "LOGGED_IN":
             img5=Image.open('off.png')
             img5=ImageTk.PhotoImage(img5)
+            lbl2=tk.Button(self, image=img5, command=self.connect, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
             lbl2.image=img5
+            lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
         else:
             img5=Image.open('on.png')
             img5=ImageTk.PhotoImage(img5)
             lbl2.image=img5
-		
+            lbl2=tk.Button(self, image=img5, command=self.connect, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
+            lbl2.image=img5
+            lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
 		
 		
 		
