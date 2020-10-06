@@ -74,8 +74,8 @@ class Mainframe(tk.Frame):
         tk.Label(self,textvariable=self.Connectionstate,bg='#0b0c1b',fg='#fff',font=("HCo Gotham SSm",14)).grid(row=5, column=3, columnspan=6)
 
         #download stats
-        img=tk.PhotoImage(file='down.gif')
-        img2=tk.PhotoImage(file='up.gif')
+        img=tk.PhotoImage(file='/home/pi/DisneyStreaming/down.gif')
+        img2=tk.PhotoImage(file='/home/pi/DisneyStreaming/up.gif')
         lbl=tk.Label(self, image=img, bg='#0b0c1b')
         lbl.image = img
         lbl.grid(row=1, column=3)
@@ -111,13 +111,13 @@ class Mainframe(tk.Frame):
         tk.Label(self,textvariable=self.Adapterstate4, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=7, rowspan=10)
      
         #Exit and Connect Buttons
-        img4=Image.open('exit.png').resize((40,40))
+        img4=Image.open('/home/pi/DisneyStreaming/exit.png').resize((40,40))
         img4=ImageTk.PhotoImage(img4)
         lbl1=tk.Button(self, image=img4, command=exit, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl1.image=img4
         lbl1.grid(row=0, column=0, columnspan=3, rowspan=2)
 
-        img5=Image.open('on.png')
+        img5=Image.open('/home/pi/DisneyStreaming/on.png')
         img5=ImageTk.PhotoImage(img5)
         lbl2=tk.Button(self, image=img5, command=self.connect, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl2.image=img5
@@ -138,7 +138,7 @@ class Mainframe(tk.Frame):
         progress2.config(mode='determinate')
 
         #slap in a logo here
-        img3=Image.open('Brianlogo.png').resize((80,80))
+        img3=Image.open('/home/pi/DisneyStreaming/Brianlogo.png').resize((80,80))
         img3=ImageTk.PhotoImage(img3)
         lbl=tk.Label(self, image=img3, bg='#0b0c1b')
         lbl.image = img3
@@ -198,13 +198,13 @@ class Mainframe(tk.Frame):
             self.State=(str(stateraw).replace('State.', '')) 
         # Logic to update the button at the top
         if StateStr == "LOGGED_IN":
-            img5=Image.open('off.png')
+            img5=Image.open('/home/pi/DisneyStreaming/off.png')
             img5=ImageTk.PhotoImage(img5)
             lbl2=tk.Button(self, image=img5, command=self.connect, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
             lbl2.image=img5
             lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
         else:
-            img5=Image.open('on.png')
+            img5=Image.open('/home/pi/DisneyStreaming/on.png')
             img5=ImageTk.PhotoImage(img5)
             lbl2=tk.Button(self, image=img5, command=self.connect, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
             lbl2.image=img5
