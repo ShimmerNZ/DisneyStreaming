@@ -196,7 +196,7 @@ class Mainframe(tk.Frame):
         else:
             self.State=(str(stateraw).replace('State.', '')) 
         # Logic to update the button at the top
-        If StateStr == "LOGGED_IN":
+        if StateStr == "LOGGED_IN":
             img5=Image.open('off.png')
             img5=ImageTk.PhotoImage(img5)
             lbl2.image=img5
