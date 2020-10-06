@@ -8,7 +8,7 @@
 #!/usr/bin/python3
 from gpiozero import CPUTemperature
 from tkinter import ttk
-from PIL import Image,ImageTK
+from PIL import Image, ImageTk
 import time
 import tkinter as tk
 import speedify
