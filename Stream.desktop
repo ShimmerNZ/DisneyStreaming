@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Disney Streaming App
 Comment=Launches GUI
-Icon=/usr/share/pixmaps/obconf.png
+Icon=/home/pi/DisneyStreaming/Brianlogo-trans.png
 Path=/home/pi/DisneyStreaming
 Exec=/usr/bin/python3 "/home/pi/DisneyStreaming/networkmonitor.py"
 Type=Application
