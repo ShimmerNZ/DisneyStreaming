@@ -110,7 +110,8 @@ class Mainframe(tk.Frame):
         tk.Label(self,textvariable=self.Adapterstate4, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=7, rowspan=10)
 
         #Exit and Connect Buttons
-        tk.Button(self, text="Exit", command = exit).grid(row=0, column=0, columnspan=2, rowspan=2)
+        exitphoto=tk.PhotoImage(file='exit.gif')
+        tk.Button(self, text="Exit", image=exitphoto, command = exit).grid(row=0, column=0, columnspan=3, rowspan=2)
         tk.Button(self, text="Connect", command= self.connect).grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
 
         #Progress bar code 
