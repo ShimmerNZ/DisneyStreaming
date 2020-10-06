@@ -24,26 +24,10 @@ interface ="wlan0" # this is just a sample value
 
 #CPU Temp Section
 cpu=CPUTemperature()
-print(cpu.temperature)
 global tx_prev
 global rx_prev
 (tx_prev,rx_prev)=(0,0)
 #Speedify settingssudo apt-get install python3-pil python3-pil.imagetk
-#state=speedify.show_state()
-
-#stats=speedify.stats(5)
-#print(stats[0][1])
-
-#for item in stats:
-#    print(item)
-#stats_dict=json.dumps(stats)
-#print(stats_dict['adapters'])
-#print(state)
-#print(stats)
-#print(speedify.show_connectmethod())
-#print(speedify.show_currentserver())
-#print(speedify.Priority)
-#print(speedify.speedtest())
 
 class Mainframe(tk.Frame):
     def __init__(self,master,*args,**kwargs):
