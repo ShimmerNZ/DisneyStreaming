@@ -72,7 +72,7 @@ class Mainframe(tk.Frame):
 
         tk.Label(self,textvariable=self.Connectionstate,bg='#0b0c1b',fg='#fff',font=("HCo Gotham SSm",14)).grid(row=5, column=3, columnspan=6)
 
-	#download stats
+        #download stats
         img=tk.PhotoImage(file='down.gif')
         img2=tk.PhotoImage(file='up.gif')
         lbl=tk.Label(self, image=img, bg='#0b0c1b')
@@ -159,7 +159,6 @@ class Mainframe(tk.Frame):
         self.txspeed = ''
         self.Server = 'checking Server'
         self.CPUUtil = ''
-        
         # call Get Temp which will call itself after a delay
         self.GetTemp()
         self.GetCPU()
@@ -196,8 +195,23 @@ class Mainframe(tk.Frame):
             self.State="DISCONNECTED"
         else:
             self.State=(str(stateraw).replace('State.', '')) 
-
-        # Now repeat call
+        # Logic to update the button at the top
+        If self.State=="DISCONNECTED":
+            img5=Image.open('off.png')
+            img5=ImageTk.PhotoImage(img5)
+            lbl2.image=img5
+        else:
+            img5=Image.open('on.png')
+            img5=ImageTk.PhotoImage(img5)
+            lbl2.image=img5
+		
+		
+		
+		
+		
+		
+		
+		
         self.after(self.TimerInterval2,self.GetState)
 
     def GetAdapter(self):
