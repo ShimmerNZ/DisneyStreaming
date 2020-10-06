@@ -27,7 +27,7 @@ print(cpu.temperature)
 global tx_prev
 global rx_prev
 (tx_prev,rx_prev)=(0,0)
-#Speedify settings
+#Speedify settingssudo apt-get install python3-pil python3-pil.imagetk
 #state=speedify.show_state()
 
 #stats=speedify.stats(5)
@@ -124,7 +124,7 @@ class Mainframe(tk.Frame):
         progress2.config(mode='determinate')
 
         #slap in a logo here
-        img3=tk.PhotoImage(Image.open('Brianlogo.png').resize(100,100))
+        img3=tk.PhotoImage(Image.open('Brianlogo.png').resize((100,100)))
         lbl=tk.Label(self, image=img3, bg='#0b0c1b')
         lbl.image = img3
         lbl.grid(row=22, column=0, columnspan=4, rowspan=2)
