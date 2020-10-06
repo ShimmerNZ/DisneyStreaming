@@ -125,7 +125,7 @@ class Mainframe(tk.Frame):
 
         #slap in a logo here
         img3=Image.open('Brianlogo.png')
-		img3=image.resize((100,100),Image.ANTIALIAS)
+		img3=image.resize((100, 100), Image.ANTIALIAS)
         lbl=tk.Label(self, image=img3, bg='#0b0c1b')
         lbl.image = img3
         lbl.grid(row=22, column=0, columnspan=4, rowspan=2)
