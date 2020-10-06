@@ -28,7 +28,7 @@ global tx_prev
 global rx_prev
 (tx_prev,rx_prev)=(0,0)
 #Speedify settingssudo apt-get install python3-pil python3-pil.imagetk
-
+ 
 class Mainframe(tk.Frame):
     def __init__(self,master,*args,**kwargs):
         tk.Frame.__init__(self,master,*args,**kwargs)
