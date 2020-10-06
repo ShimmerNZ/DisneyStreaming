@@ -80,12 +80,12 @@ class Mainframe(tk.Frame):
         lbl.grid(row=1, column=3)
         lbl=tk.Label(self, image=img2, bg='#0b0c1b')
         lbl.image = img2
-        lbl.grid(row=1, column=6)
+        lbl.grid(row=1, column=6, sticky='E')
 
         tk.Label(self,text='DOWNLOAD ',bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",16)).grid(row=1, column=4)
         tk.Label(self,text='Mbps', bg='#0b0c1b',fg='#9193a8', font=("HCo Gotham SSm",16)).grid(row=1, column=5, sticky='W')
-        tk.Label(self,text='UPLOAD ', bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",16)).grid(row=1, column=7)
-        tk.Label(self,text='Mbps', bg='#0b0c1b',fg='#9193a8', font=("HCo Gotham SSm",16)).grid(row=1, column=8, stick='W')
+        tk.Label(self,text='UPLOAD ', bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",16)).grid(row=1, column=7, sticky='W')
+        tk.Label(self,text='Mbps', bg='#0b0c1b',fg='#9193a8', font=("HCo Gotham SSm",16)).grid(row=1, column=7, columnspan=2)
 
         self.TXspeed = tk.StringVar()
 
@@ -95,7 +95,7 @@ class Mainframe(tk.Frame):
 
         #Adapter Stats
         tk.Label(self,text='CONNECTION TYPE  ', bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10)).grid(row=7, column=4)
-        tk.Label(self,text='INTERFACE NAME  ', bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10)).grid(row=7, column=5, columnspan=2)
+        tk.Label(self,text='INTERFACE NAME  ', bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10)).grid(row=7, column=5, columnspan=2, padx=50 )
         tk.Label(self,text='SIGNAL QUALITY  ', bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10)).grid(row=7, column=7)
         tk.Label(self,text='CONNECTION STATE  ', bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10)).grid(row=7, column=8)
 
@@ -108,19 +108,30 @@ class Mainframe(tk.Frame):
         tk.Label(self,textvariable=self.Adapterstate3, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=8, rowspan=10)
         self.Adapterstate4= tk.StringVar()
         tk.Label(self,textvariable=self.Adapterstate4, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=7, rowspan=10)
-
+     
         #Exit and Connect Buttons
-        exitphoto=Image.open('exit.png').resize((50,50))
-        exitphoto=ImageTk.PhotoImage(exitphoto)
-        tk.Button(self, image=exitphoto, command = exit, bg='#0b0c1b').grid(row=0, column=0, columnspan=3, rowspan=2)
-        tk.Button(self, text="Connect", command= self.connect).grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
+        img4=Image.open('exit.png').resize((40,40))
+        img4=ImageTk.PhotoImage(img4)
+        lbl1=tk.Button(self, image=img4, command=exit, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
+        lbl1.image=img4
+        lbl1.grid(row=0, column=0, columnspan=3, rowspan=2)
+
+        img5=Image.open('on.png')
+        img5=ImageTk.PhotoImage(img5)
+        lbl2=tk.Button(self, image=img5, command=self.connect, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
+        lbl2.image=img5
+        lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
 
         #Progress bar code 
         s=ttk.Style()
         s.configure("green.Vertical.TProgressbar", troughcolor="gray", background="green")
         s.configure("yellow.Vertical.TProgressbar", troughcolor="gray", background="yellow")
         s.configure("red.Vertical.TProgressbar", troughcolor="gray", background="red")
-        
+        # use the above to set colour below
+        progress=ttk.Progressbar(self, maximum=90, orient="vertical",length=250,style="green.Vertical.TProgressbar",variable=self.TemperatureC)
+        progress.grid(row=3,column=1, rowspan=13)
+        progress.config(mode='determinate')
+
         progress2=ttk.Progressbar(self,orient='vertical',length=250, variable=self.CPUutil)
         progress2.grid(row=3,column=2, rowspan=13)
         progress2.config(mode='determinate')
@@ -133,9 +144,9 @@ class Mainframe(tk.Frame):
         lbl.grid(row=22, column=1, columnspan=2, rowspan=2)
 
         #variable time
-        self.TimerInterval = 1000
-        self.TimerInterval2 = 3000
-        self.TimerInterval3 = 1250
+        self.TimerInterval = 500
+        self.TimerInterval2 = 1000
+        self.TimerInterval3 = 2000
         self.TempC = 0
         self.TempF = 0
         self.ProgressStyle = 'green.Vertical.TProgressbar'
@@ -166,23 +177,6 @@ class Mainframe(tk.Frame):
         self.TempC = round(float(cpu_temp)/1000,1) 
         self.TempF = round(float(1.8*float(cpu_temp))/1000+32,1)
         TempCheck=int(self.TempC)
-        #insert colour change on temp
-        s=ttk.Style()
-        s.configure("green.Vertical.TProgressbar", troughcolor="gray", background="green")
-        s.configure("yellow.Vertical.TProgressbar", troughcolor="gray", background="yellow")
-        s.configure("red.Vertical.TProgressbar", troughcolor="gray", background="red")
-        if TempCheck <= 50:
-            progress=ttk.Progressbar(self, maximum=90, orient="vertical",length=250,style="green.Vertical.TProgressbar",variable=self.TemperatureC)
-        elif 75 < TempCheck <= 80:
-            progress=ttk.Progressbar(self, maximum=90, orient="vertical",length=250,style="yellow.Vertical.TProgressbar",variable=self.TemperatureC)
-        elif TempCheck > 80:
-            progress=ttk.Progressbar(self, maximum=90, orient="vertical",length=250,style="red.Vertical.TProgressbar",variable=self.TemperatureC)
-        else:
-           progress=ttk.Progressbar(self, maximum=90, orient="vertical",length=250,style="green.Vertical.TProgressbar",variable=self.TemperatureC)
-
-        progress.grid(row=3,column=1, rowspan=13)
-        progress.config(mode='determinate')
-
         # Now repeat call
         self.after(self.TimerInterval,self.GetTemp)
 
@@ -191,7 +185,7 @@ class Mainframe(tk.Frame):
         self.CPUUtil=psutil.cpu_percent(interval=None, percpu=False)
         self.CPUUtil=int(self.CPUUtil)
 
-        self.after(self.TimerInterval3,self.GetCPU)
+        self.after(self.TimerInterval,self.GetCPU)
 
     def GetState(self):
         self.Connectionstate.set(self.State)
@@ -204,7 +198,7 @@ class Mainframe(tk.Frame):
             self.State=(str(stateraw).replace('State.', '')) 
 
         # Now repeat call
-        self.after(self.TimerInterval,self.GetState)
+        self.after(self.TimerInterval2,self.GetState)
 
     def GetAdapter(self):
         self.Adapterstate1.set(self.Adapter1)
@@ -244,13 +238,13 @@ class Mainframe(tk.Frame):
                         self.Adapter4 = self.Adapter4 + '\n'
 
 	# Now repeat call
-        self.after(self.TimerInterval,self.GetAdapter)
+        self.after(self.TimerInterval2,self.GetAdapter)
 
     def GetCurrentServer(self):
         self.Currentserver.set(self.Server)
         servers=speedify.show_currentserver()
         self.Server=servers['friendlyName']
-        self.after(self.TimerInterval2,self.GetCurrentServer)
+        self.after(self.TimerInterval3,self.GetCurrentServer)
 
     def connect(self):
         checkState = self.State
