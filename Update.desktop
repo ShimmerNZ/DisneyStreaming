@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Update Script
+Comment=Does a git pull to get the latest version of the Streaming Script in order to be able to fix remotely
+Icon=/usr/share/pixmaps/obconf.png
+Exec=/home/pi/update.sh
+Type=Application
+Encoding=UTF-8
+Terminal=true
+StartupNotify=false

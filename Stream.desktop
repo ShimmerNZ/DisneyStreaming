@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Disney Streaming App
+Comment=Launches GUI
+Icon=/usr/share/pixmaps/obconf.png
+Path=/home/pi/DisneyStreaming
+Exec=/usr/bin/python3 "/home/pi/DisneyStreaming/networkmonitor.py"
+Type=Application
+NoDisplay=flase
+NotShowIn=GNOME;KDE;XFCE;
