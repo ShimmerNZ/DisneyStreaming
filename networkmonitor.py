@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Monitoring App so that you can see the status of the various interfaces, connectivity status, throughput, CPU utilisation and temp
 # of the Raspberry Pi
 # include speed test function - speedtest-cli
@@ -5,7 +6,7 @@
 # captive portal launch?
 # enable/disable speedify
 
-#!/usr/bin/python3
+
 from gpiozero import CPUTemperature
 from tkinter import ttk
 from PIL import Image, ImageTk
