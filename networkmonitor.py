@@ -124,7 +124,8 @@ class Mainframe(tk.Frame):
         progress2.config(mode='determinate')
 
         #slap in a logo here
-        img3=tk.PhotoImage(Image.open('Brianlogo.png').resize((100,100)))
+        img3=Image.open('Brianlogo.png')
+		img3=image.resize((100,100),Image.ANTIALIAS)
         lbl=tk.Label(self, image=img3, bg='#0b0c1b')
         lbl.image = img3
         lbl.grid(row=22, column=0, columnspan=4, rowspan=2)
