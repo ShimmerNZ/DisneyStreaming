@@ -112,7 +112,7 @@ class Mainframe(tk.Frame):
         #Exit and Connect Buttons
         exitphoto=Image.open('exit.gif').resize((50,50))
         exitphoto=ImageTk.PhotoImage(exitphoto)
-        tk.Button(self, text="Exit", image=exitphoto, command = exit).grid(row=0, column=0, columnspan=3, rowspan=2)
+        tk.Button(self, text="Exit", image=exitphoto, command = exit, bg='#0b0c1b', compound=LEFT).grid(row=0, column=0, columnspan=3, rowspan=2)
         tk.Button(self, text="Connect", command= self.connect).grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
 
         #Progress bar code 
