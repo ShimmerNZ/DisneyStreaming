@@ -173,7 +173,7 @@ class Mainframe(tk.Frame):
         #self.TemperatureF.set(self.TempF)
         tempFile =open("/sys/class/thermal/thermal_zone0/temp")
         cpu_temp = tempFile.read()
-        self.TempC = round(float(cpu_temp)/1000,1) 
+        self.TempC = int(float(cpu_temp)/1000) 
         self.TempF = round(float(1.8*float(cpu_temp))/1000+32,1)
         TempCheck=int(self.TempC)
         # Now repeat call
