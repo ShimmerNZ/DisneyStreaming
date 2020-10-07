@@ -101,12 +101,13 @@ class Mainframe(tk.Frame):
         lbl1.image=img4
         lbl1.grid(row=0, column=0, columnspan=3, rowspan=2)
 
+        global imgon
+        global imgoff
         img5=Image.open('/home/pi/DisneyStreaming/on.png')
         imgon=ImageTk.PhotoImage(img5)
         img6=Image.open('/home/pi/DisneyStreaming/off.png')
         imgoff=ImageTk.PhotoImage(img6)
         lbl2=tk.Button(self, image=imgon, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
-        lbl2.config(image=ImageTk.PhotoImage(image))
         lbl2['command']= lambda arg=lbl2:connect(self)
         lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
 
