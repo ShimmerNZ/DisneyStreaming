@@ -251,7 +251,7 @@ class Mainframe(tk.Frame):
         for entry in speed:
             if entry['adapterID']=='speedify':
                 download=entry['downloadBps']
-                upload=entry[uploadBps']
+                upload=entry['uploadBps']
                 download=(int(download))/1000000
                 upload=(int(upload))/1000000
                 print(download +'   '+upload)
