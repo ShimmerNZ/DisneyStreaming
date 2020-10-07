@@ -108,7 +108,7 @@ class Mainframe(tk.Frame):
         img6=Image.open('/home/pi/DisneyStreaming/off.png')
         imgoff=ImageTk.PhotoImage(img6)
         lbl2=tk.Button(self, image=imgon, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
-        lbl2['command']= lambda arg=lbl2:self.connect()
+        lbl2['command']= lambda arg=lbl2:self.connect(arg)
         lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
 
         #Progress bar code 
@@ -234,16 +234,16 @@ class Mainframe(tk.Frame):
         self.Server=servers['friendlyName']
         self.after(self.TimerInterval3,self.GetCurrentServer)
 
-    def connect(self):
+    def connect(widget):
         checkState = self.State
         checkState = str(checkState)
         if checkState!="CONNECTED":
 
             speedify.connect_closest()
-            self['image']= imgon
+            widget['image']= imgon
         else:
             speedify.disconnect()
-            self['image']= imgoff
+            widget['image']= imgoff
 
     def exit(self):
         exit()
