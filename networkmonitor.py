@@ -48,7 +48,7 @@ class PopUpConfirmQuit(tk.Toplevel):
     def Reboot(self):
         os.system('reboot')
 
-    def Exit(self)
+    def Exit(self):
         exit()
  
 class Mainframe(tk.Frame):
