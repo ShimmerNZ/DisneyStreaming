@@ -28,6 +28,18 @@ global tx_prev
 global rx_prev
 (tx_prev,rx_prev)=(0,0)
 #Speedify settingssudo apt-get install python3-pil python3-pil.imagetk
+
+class PopUpConfirmQuit(tk.Toplevel):
+    """A TopLevel popup that asks for confirmation that the user wants to quit.
+    Upon confirmation, the App is destroyed.
+    If not, the popup closes and no further action is taken
+    """
+    def __init__(self, master=None):
+        super().__init__(master)
+        tk.Label(self, text="Are you sure you want to quit").pack()
+        tk.Button(self, text='confirm', command=master.destroy, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Nooooo!', command=self.destroy).pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+
  
 class Mainframe(tk.Frame):
     def __init__(self,master,*args,**kwargs):
@@ -97,7 +109,7 @@ class Mainframe(tk.Frame):
         #Exit and Connect Buttons
         img4=Image.open('/home/pi/DisneyStreaming/exit.png').resize((40,40))
         img4=ImageTk.PhotoImage(img4)
-        lbl1=tk.Button(self, image=img4, command=self.exit(), borderwidth=0, highlightthickness=0, bg='#0b0c1b')
+        lbl1=tk.Button(self, image=img4, command=PopUpConfirmQuit(self), borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl1.image=img4
         lbl1.grid(row=0, column=0, columnspan=3, rowspan=2)
 
@@ -248,20 +260,6 @@ class Mainframe(tk.Frame):
     def Special(self):
         print('reserved for later use')
               
-
-    def exit(self):
-        qw=Tk()
-        frame1 = Frame(qw, highlightbackground="green", highlightcolor="green",highlightthickness=1, bd=0)
-        frame1.pack()
-        qw.overrideredirect(1)
-        qw.geometry("200x70+650+400")
-        lbl = Label(frame1, text="are you sure you want to quit")
-        lbl.pack()
-        yes_btn = Button(frame1, text="Yes", bg="light blue", fg="red",command=quit, width=10)
-        yes_btn.pack(padx=10, pady=10 , side=LEFT)
-        no_btn = Button(frame1, text="No", bg="light blue", fg="red",command=qw.destroy, width=10)
-        no_btn.pack(padx=10, pady=10, side=LEFT)
-        qw.mainloop()
   
     def GetSpeed(self):
         # throw in the connectify interface throughput stats
