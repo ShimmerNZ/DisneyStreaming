@@ -133,8 +133,8 @@ class Mainframe(tk.Frame):
         lbl.grid(row=22, column=1, columnspan=2, rowspan=2)
 
         #variable time
-        self.TimerInterval = 500
-        self.TimerInterval2 = 1000
+        self.TimerInterval = 700
+        self.TimerInterval2 = 2000
         self.TimerInterval3 = 5000
         self.TempC = 0
         self.TempF = 0
