@@ -145,6 +145,7 @@ class Mainframe(tk.Frame):
         self.txspeed = ''
         self.Server = 'checking Server'
         self.CPUUtil = ''
+        self.imgchange = '/home/pi/DisneyStreaming/on.png'
         # call Get Temp which will call itself after a delay
         self.GetTemp()
         self.GetCPU()
