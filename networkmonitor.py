@@ -135,7 +135,7 @@ class Mainframe(tk.Frame):
         #variable time
         self.TimerInterval = 500
         self.TimerInterval2 = 1000
-        self.TimerInterval3 = 2000
+        self.TimerInterval3 = 5000
         self.TempC = 0
         self.TempF = 0
         self.ProgressStyle = 'green.Vertical.TProgressbar'
@@ -173,7 +173,7 @@ class Mainframe(tk.Frame):
         self.CPUUtil=psutil.cpu_percent(interval=None, percpu=False)
         self.CPUUtil=int(self.CPUUtil)
 
-        self.after(self.TimerInterval,self.GetCPU)
+        self.after(self.TimerInterval2,self.GetCPU)
 
     def GetState(self):
         self.Connectionstate.set(self.State)
@@ -292,7 +292,6 @@ class Mainframe(tk.Frame):
             rx_speed = ((rx - rx_prev)/100000)*.75
             #print('RX: ', round(rx_speed,1), 'Mbps')
             self.rxspeed=str(round(rx_speed,1))
-        #time.sleep(1)
         tx_prev = tx
         rx_prev = rx
         self.after(self.TimerInterval,self.GetSpeed)
