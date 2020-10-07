@@ -128,7 +128,7 @@ class Mainframe(tk.Frame):
         #slap in a logo here
         img3=Image.open('/home/pi/DisneyStreaming/Brianlogo.png').resize((80,80))
         img3=ImageTk.PhotoImage(img3)
-        lbl=tk.Label(self, image=img3, bg='#0b0c1b')
+        lbl=tk.Button(self, image=img4, command=self.Speedtest, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl.image = img3
         lbl.grid(row=22, column=1, columnspan=2, rowspan=2)
 
@@ -244,6 +244,9 @@ class Mainframe(tk.Frame):
         else:
             speedify.disconnect()
             arg['image']= imgoff
+
+    def Speedtest(self):
+        print(speedify.speedtest())
 
     def exit(self):
         exit()
