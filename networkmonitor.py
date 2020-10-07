@@ -36,10 +36,16 @@ class PopUpConfirmQuit(tk.Toplevel):
     """
     def __init__(self, master=None):
         super().__init__(master)
-        tk.Label(self, text="Are you sure you want to quit").pack()
-        tk.Button(self, text='confirm', command=master.destroy, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
-        tk.Button(self, text='Nooooo!', command=self.destroy).pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Label(self, text="What would you like to do?").pack()
+        tk.Button(self, text='Exit App', command=master.destroy, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Cancel', command=self.destroy).pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Restart', command=self.Reboot(), fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Shutdown', command=self.Shutdown()).pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+    def Shutdown()
+        os.system('shutdown')
 
+    def Reboot()
+        os.system('reboot')
  
 class Mainframe(tk.Frame):
     def __init__(self,master,*args,**kwargs):
