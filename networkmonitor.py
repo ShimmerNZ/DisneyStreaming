@@ -101,9 +101,6 @@ class Mainframe(tk.Frame):
         lbl1.image=img4
         lbl1.grid(row=0, column=0, columnspan=3, rowspan=2)
 
-        
-        imgonself.ImgChange='/home/pi/DisneyStreaming/on.png'
-
         img5=Image.open('/home/pi/DisneyStreaming/on.png')
         imgon=ImageTk.PhotoImage(img5)
         img6=Image.open('/home/pi/DisneyStreaming/off.png')
