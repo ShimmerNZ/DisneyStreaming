@@ -110,7 +110,7 @@ class Mainframe(tk.Frame):
         imgoff=ImageTk.PhotoImage(img6)
 
         lbl2=tk.Button(self, image=imgon, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
-        lbl2.['command']= lamda arg=lbl2:connect(self)
+        lbl2['command']= lamda arg=lbl2:connect(self)
         lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
 
         #Progress bar code 
