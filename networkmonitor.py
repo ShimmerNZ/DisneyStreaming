@@ -108,7 +108,7 @@ class Mainframe(tk.Frame):
         img6=Image.open('/home/pi/DisneyStreaming/off.png')
         imgoff=ImageTk.PhotoImage(img6)
         lbl2=tk.Button(self, image=imgon, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
-        lbl2['command']= lambda arg=lbl2:self.connect(arg)
+        lbl2['command']= lambda arg=lbl2:self.connect()
         lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
 
         #Progress bar code 
