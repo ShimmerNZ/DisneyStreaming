@@ -147,7 +147,6 @@ class Mainframe(tk.Frame):
         self.txspeed = ''
         self.Server = 'checking Server'
         self.CPUUtil = ''
-        self.imgchange = '/home/pi/DisneyStreaming/on.png'
         # call Get Temp which will call itself after a delay
         self.GetTemp()
         self.GetCPU()
@@ -177,7 +176,6 @@ class Mainframe(tk.Frame):
 
     def GetState(self):
         self.Connectionstate.set(self.State)
-        self.ImgChange.set(self.imgchange)
         stateraw=speedify.show_state()
         #self.State=(str(stateraw).replace('State.', ''))
         StateStr=str(stateraw).replace('State.', '')
