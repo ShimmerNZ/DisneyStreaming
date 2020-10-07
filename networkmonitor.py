@@ -128,7 +128,7 @@ class Mainframe(tk.Frame):
         #slap in a logo here
         img3=Image.open('/home/pi/DisneyStreaming/Brianlogo.png').resize((80,80))
         img3=ImageTk.PhotoImage(img3)
-        lbl=tk.Button(self, image=img3, command=self.Speedtest(), borderwidth=0, highlightthickness=0, bg='#0b0c1b')
+        lbl=tk.Button(self, image=img3, command=self.Special, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl.image = img3
         lbl.grid(row=22, column=1, columnspan=2, rowspan=2)
 
@@ -166,7 +166,7 @@ class Mainframe(tk.Frame):
         self.TempF = round(float(1.8*float(cpu_temp))/1000+32,1)
         TempCheck=int(self.TempC)
         # Now repeat call
-        self.after(self.TimerInterval,self.GetTemp)
+        self.after(self.TimerInterval3,self.GetTemp)
 
     def GetCPU(self):
         self.CPUutil.set(self.CPUUtil)
@@ -245,25 +245,12 @@ class Mainframe(tk.Frame):
             speedify.disconnect()
             arg['image']= imgoff
 
-    def Speedtest(self):
-        speed=speedify.speedtest() 
-        print(speed)
-        for entry in speed:
-            if entry['adapterID']=='speedify':
-                download=entry['downloadBps']
-                upload=entry['uploadBps']
-                download=(int(download))/1000000
-                upload=(int(upload))/1000000
-                print(download +'   '+upload)
-                
+    def Special(self):
+        print('reserved for later use')
+              
 
     def exit(self):
         exit()
-
-  #  def get_bytes(t, iface='connectify0'):
-  #      with open('/sys/class/net/' + iface + '/statistics/' + t + '_bytes', 'r') as f:
-  #          data = f.read();
-  #      return int(data)
   
     def GetSpeed(self):
         # throw in the connectify interface throughput stats
