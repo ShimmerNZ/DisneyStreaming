@@ -109,7 +109,7 @@ class Mainframe(tk.Frame):
         #Exit and Connect Buttons
         img4=Image.open('/home/pi/DisneyStreaming/exit.png').resize((40,40))
         img4=ImageTk.PhotoImage(img4)
-        lbl1=tk.Button(self, image=img4, command=PopUpConfirmQuit(self), borderwidth=0, highlightthickness=0, bg='#0b0c1b')
+        lbl1=tk.Button(self, image=img4, command=lambda: PopUpConfirmQuit(self), borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl1.image=img4
         lbl1.grid(row=0, column=0, columnspan=3, rowspan=2)
 
