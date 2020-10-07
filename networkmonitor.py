@@ -101,9 +101,10 @@ class Mainframe(tk.Frame):
         lbl1.image=img4
         lbl1.grid(row=0, column=0, columnspan=3, rowspan=2)
 
-        img5=Image.open('/home/pi/DisneyStreaming/on.png')
-        img5=ImageTk.PhotoImage(img5)
-        lbl2=tk.Button(self, image=img5, command=self.connect, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
+        self.ImgChange = tk.StringVar()
+        imgonoff=Image.open(self.ImgChange)
+        imgonoff=ImageTk.PhotoImage(imgonoff)
+        lbl2=tk.Button(self, image=imgonoff, command=self.connect, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl2.image=img5
         lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
 
@@ -173,6 +174,7 @@ class Mainframe(tk.Frame):
 
     def GetState(self):
         self.Connectionstate.set(self.State)
+        self.ImgChange.set(self.imgchange)
         stateraw=speedify.show_state()
         #self.State=(str(stateraw).replace('State.', ''))
         StateStr=str(stateraw).replace('State.', '')
@@ -182,24 +184,10 @@ class Mainframe(tk.Frame):
             self.State=(str(stateraw).replace('State.', '')) 
         # Logic to update the button at the top
         if StateStr == "LOGGED_IN":
-            img5=Image.open('/home/pi/DisneyStreaming/off.png')
-            img5=ImageTk.PhotoImage(img5)
-            lbl2=tk.Button(self, image=img5, command=self.connect, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
-            lbl2.image=img5
-            lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
+            self.imgchange='/home/pi/DisneyStreaming/off.png'
         else:
-            img5=Image.open('/home/pi/DisneyStreaming/on.png')
-            img5=ImageTk.PhotoImage(img5)
-            lbl2=tk.Button(self, image=img5, command=self.connect, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
-            lbl2.image=img5
-            lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
-		
-		
-		
-		 
-		
-		
-		
+            self.imgchange='/home/pi/DisneyStreaming/on.png'
+
         self.after(self.TimerInterval2,self.GetState)
 
     def GetAdapter(self):
