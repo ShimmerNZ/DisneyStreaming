@@ -234,16 +234,16 @@ class Mainframe(tk.Frame):
         self.Server=servers['friendlyName']
         self.after(self.TimerInterval3,self.GetCurrentServer)
 
-    def connect(widget):
+    def connect(self, arg):
         checkState = self.State
         checkState = str(checkState)
         if checkState!="CONNECTED":
 
             speedify.connect_closest()
-            widget['image']= imgon
+            self['image']= imgon
         else:
             speedify.disconnect()
-            widget['image']= imgoff
+            self['image']= imgoff
 
     def exit(self):
         exit()
