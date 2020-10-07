@@ -226,7 +226,7 @@ class Mainframe(tk.Frame):
                         self.Adapter4 = self.Adapter4 + '\n'
 
 	# Now repeat call
-        self.after(self.TimerInterval2,self.GetAdapter)
+        self.after(self.TimerInterval3,self.GetAdapter)
 
     def GetCurrentServer(self):
         self.Currentserver.set(self.Server)
@@ -250,7 +250,18 @@ class Mainframe(tk.Frame):
               
 
     def exit(self):
-        exit()
+        qw=Tk()
+        frame1 = Frame(qw, highlightbackground="green", highlightcolor="green",highlightthickness=1, bd=0)
+        frame1.pack()
+        qw.overrideredirect(1)
+        qw.geometry("200x70+650+400")
+        lbl = Label(frame1, text="are you sure you want to quit")
+        lbl.pack()
+        yes_btn = Button(frame1, text="Yes", bg="light blue", fg="red",command=quit, width=10)
+        yes_btn.pack(padx=10, pady=10 , side=LEFT)
+        no_btn = Button(frame1, text="No", bg="light blue", fg="red",command=qw.destroy, width=10)
+        no_btn.pack(padx=10, pady=10, side=LEFT)
+        qw.mainloop()
   
     def GetSpeed(self):
         # throw in the connectify interface throughput stats
