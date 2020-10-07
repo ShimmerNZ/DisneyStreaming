@@ -41,10 +41,11 @@ class PopUpConfirmQuit(tk.Toplevel):
         tk.Button(self, text='Cancel', command=self.destroy).pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Restart', command=self.Reboot(), fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Shutdown', command=self.Shutdown()).pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
-    def Shutdown()
+    
+    def Shutdown():
         os.system('shutdown')
 
-    def Reboot()
+    def Reboot():
         os.system('reboot')
  
 class Mainframe(tk.Frame):
