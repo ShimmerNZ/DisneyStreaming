@@ -101,12 +101,16 @@ class Mainframe(tk.Frame):
         lbl1.image=img4
         lbl1.grid(row=0, column=0, columnspan=3, rowspan=2)
 
-        self.ImgChange = tk.StringVar()
-        self.ImgChange='/home/pi/DisneyStreaming/on.png'
-        imgonoff=Image.open(self.ImgChange)
-        imgonoff=ImageTk.PhotoImage(imgonoff)
-        lbl2=tk.Button(self, image=imgonoff, command=self.connect, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
-        lbl2.image=imgonoff
+        
+        imgonself.ImgChange='/home/pi/DisneyStreaming/on.png'
+
+        img5=Image.open('/home/pi/DisneyStreaming/on.png')
+        imgon=ImageTk.PhotoImage(img5)
+        img6=Image.open('/home/pi/DisneyStreaming/off.png')
+        imgoff=ImageTk.PhotoImage(img6)
+
+        lbl2=tk.Button(self, image=imgon, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
+        lbl2.['command']= lamda arg=lbl2:connect(self)
         lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
 
         #Progress bar code 
@@ -185,10 +189,6 @@ class Mainframe(tk.Frame):
         else:
             self.State=(str(stateraw).replace('State.', '')) 
         # Logic to update the button at the top
-        if StateStr == "LOGGED_IN":
-            self.imgchange='/home/pi/DisneyStreaming/off.png'
-        else:
-            self.imgchange='/home/pi/DisneyStreaming/on.png'
 
         self.after(self.TimerInterval2,self.GetState)
 
@@ -244,8 +244,10 @@ class Mainframe(tk.Frame):
         if checkState!="CONNECTED":
 
             speedify.connect_closest()
+            self['image']= imgon
         else:
             speedify.disconnect()
+            self['image']= imgoff
 
     def exit(self):
         exit()
