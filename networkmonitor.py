@@ -240,10 +240,10 @@ class Mainframe(tk.Frame):
         if checkState!="CONNECTED":
 
             speedify.connect_closest()
-            self['image']= imgon
+            arg['image']= imgon
         else:
             speedify.disconnect()
-            self['image']= imgoff
+            arg['image']= imgoff
 
     def exit(self):
         exit()
