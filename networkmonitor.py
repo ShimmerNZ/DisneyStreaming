@@ -14,11 +14,12 @@ import time
 import tkinter as tk
 import speedify
 import json
-import re
+import request
 import os
 import subprocess
 import argparse
 import psutil
+import urllib.request
 
 interface ="wlan0" # this is just a sample value
 
@@ -293,8 +294,7 @@ class Mainframe(tk.Frame):
         DATA_LOCATION1 = ["items", 0, "statistics", "viewCount"]
         DATA_LOCATION2 = ["items", 0, "statistics", "subscriberCount"]
         try:
-            json_url=urlopen(DATA_SOURCE)
-            data = json.loads(json_url.read())
+            data=requests.get(DATA_SOURCE)
             print(data)
             views, subs = data
             subs = int(subs)
