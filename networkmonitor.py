@@ -286,9 +286,6 @@ class Mainframe(tk.Frame):
             speedify.disconnect()
             arg['image']= imgoff
 
-    def Special(self):
-        print('reserved for later use')
-
     def GetSubscription(self):
         self.Currentsubs.set(self.Subscount)
         self.Subscount=''
@@ -297,18 +294,20 @@ class Mainframe(tk.Frame):
         DATA_LOCATION1 = ["items", 0, "statistics", "viewCount"]
         DATA_LOCATION2 = ["items", 0, "statistics", "subscriberCount"]
         DATA_LOCATION3 = ["items", 0, "statistics", "videoCount"]
-    #    try:
-    #        data=urllib.request.urlopen(DATA_SOURCE).read()
-    #        subs=json.loads(data)["items"][0]["statistics"]["subscriberCount"]
-    #        views=json.loads(data)["items"][0]["statistics"]["viewCount"]
-    #        videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
-    #        self.Subscount=str("Subscriber Count: "+subs+ " View Count: "+views+" Video Count: "+ videos)
-    #        print(self.Subscount)
-    #    except RuntimeError as e:
-    #        print("Some error occured getting Youtube API data, retrying! -", e)
+        try:
+            data=urllib.request.urlopen(DATA_SOURCE).read()
+            subs=json.loads(data)["items"][0]["statistics"]["subscriberCount"]
+            views=json.loads(data)["items"][0]["statistics"]["viewCount"]
+            videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
+            self.Subscount=str("Subscriber Count: "+subs+ " View Count: "+views+" Video Count: "+ videos)
+            print(self.Subscount)
+        except RuntimeError as e:
+            print("Some error occured getting Youtube API data, retrying! -", e)
         self.after(self.TimerInterval4,self.GetCurrentServer)
-              
-  
+           
+    def Special(self):
+        print('reserved for later use')        
+
     def GetSpeed(self):
         # throw in the connectify interface throughput stats
         #(tx_prev, rx_prev) = (0,0)
