@@ -163,6 +163,11 @@ class Mainframe(tk.Frame):
         lbl.image = img3
         lbl.grid(row=22, column=1, columnspan=2, rowspan=2)
 
+        #sub count goes here
+        self.Currentsubs = tk.StringVar()
+        tk.Label(self,textvariable=Currentsubs, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=22, column=3, rowspan=3)
+        
+
         #variable time
         self.TimerInterval = 700
         self.TimerInterval2 = 2000
@@ -288,16 +293,14 @@ class Mainframe(tk.Frame):
         DATA_LOCATION2 = ["items", 0, "statistics", "subscriberCount"]
         try:
             json_url=urlopen(DATA_SOURCE)
-            data = json.loads(json_url.read()
+            data = json.loads(json_url.read())
+            print(data)
             views, subs = data
             subs = int(subs)
             views = int(views)
             print("Subscribers:", subs)
+            self.Subs=subs
             print("Views:", views)
-        if last_subs < subs:  # ooh it went up!
-            print("New subscriber!")
-            pyportal.play_file(cwd+"/coin.wav")
-        last_subs = subs
         except RuntimeError as e:
             print("Some error occured, retrying! -", e)
         self.after(self.TimerInterval4,self.GetCurrentServer)
