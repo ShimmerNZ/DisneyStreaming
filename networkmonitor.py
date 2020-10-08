@@ -299,9 +299,9 @@ class Mainframe(tk.Frame):
         try:
             data=urllib.request.urlopen(DATA_SOURCE).read()
             print(data)
-            subs=json.loads(data)["items", 0, "statistics", "subscriberCount"]
-            views=json.loads(data)["items", 0, "statistics", "viewCount"]
-            videos=json.loads(data)["items", 0, "statistics", "videoCount"]
+            subs=json.loads(data)["items", [0], "statistics", "subscriberCount"]
+            views=json.loads(data)["items", [0], "statistics", "viewCount"]
+            videos=json.loads(data)["items", [0], "statistics", "videoCount"]
             print(subs)
             print(videos)
             print(views)
