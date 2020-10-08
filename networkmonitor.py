@@ -301,7 +301,7 @@ class Mainframe(tk.Frame):
             views=json.loads(data)["items"][0]["statistics"]["viewCount"]
             videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
             self.Subscount=str("Subscriber Count: "+subs+ " View Count: "+views+" Video Count: "+ videos)
-            print(subscount + self.Subscount)
+            print(self.Subscount)
         except RuntimeError as e:
             print("Some error occured getting Youtube API data, retrying! -", e)
         self.after(self.TimerInterval4,self.GetCurrentServer)
