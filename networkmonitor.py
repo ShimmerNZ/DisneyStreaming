@@ -186,7 +186,7 @@ class Mainframe(tk.Frame):
         self.txspeed = ''
         self.Server = 'checking Server'
         self.CPUUtil = ''
- 
+        self.Subscount = 'checking latest stats'
 
         #call functions here
         self.GetTemp()
