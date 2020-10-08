@@ -298,14 +298,13 @@ class Mainframe(tk.Frame):
         DATA_LOCATION3 = ["items", 0, "statistics", "videoCount"]
         try:
             data=urllib.request.urlopen(DATA_SOURCE).read()
-            print(data)
             subs=json.loads(data)["items"][0]["statistics"]["subscriberCount"]
             views=json.loads(data)["items"][0]["statistics"]["viewCount"]
             videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
-            self.Subs="Subscriber Count: "+subs+ " View Count: "+views+" Video Count: "
+            self.Subs=str("Subscriber Count: "+subs+ " View Count: "+views+" Video Count: ")
             #self.Subs=subs
         except RuntimeError as e:
-            print("Some error occured, retrying! -", e)
+            print("Some error occured getting Youtube API data, retrying! -", e)
         self.after(self.TimerInterval4,self.GetCurrentServer)
               
   
