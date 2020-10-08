@@ -88,7 +88,6 @@ class Mainframe(tk.Frame):
         tk.Label(self,textvariable=self.Currentserver,bg='#0b0c1b',fg='#fff',font=("HCo Gotham SSm",14,"italic")).grid(row=4, column=3, columnspan=6)
 
         self.Connectionstate = tk.StringVar()
-
         tk.Label(self,textvariable=self.Connectionstate,bg='#0b0c1b',fg='#fff',font=("HCo Gotham SSm",14)).grid(row=5, column=3, columnspan=6)
 
         #download stats
@@ -126,7 +125,11 @@ class Mainframe(tk.Frame):
         tk.Label(self,textvariable=self.Adapterstate3, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=8, rowspan=10)
         self.Adapterstate4= tk.StringVar()
         tk.Label(self,textvariable=self.Adapterstate4, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=7, rowspan=10)
-     
+ 
+        #sub count goes here
+        self.Currentsubs = tk.StringVar()
+        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='green', font=("HCo Gotham SSm",10,"italic")).grid(row=24, column=3, columnspan=6)
+
         #Exit and Connect Buttons
         img4=Image.open('/home/pi/DisneyStreaming/exit.png').resize((40,40))
         img4=ImageTk.PhotoImage(img4)
@@ -164,12 +167,7 @@ class Mainframe(tk.Frame):
         lbl=tk.Button(self, image=img3, command=self.Special, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl.image = img3
         lbl.grid(row=22, column=1, columnspan=2, rowspan=2)
-
-        #sub count goes here
-        self.Currentsubs = tk.StringVar()
-        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='green', font=("HCo Gotham SSm",8,"italic")).grid(row=24, column=3, columnspan=6)
-
-        
+       
 
         #variable time
         self.TimerInterval = 700
@@ -188,7 +186,7 @@ class Mainframe(tk.Frame):
         self.txspeed = ''
         self.Server = 'checking Server'
         self.CPUUtil = ''
-        self.Subscount = 'checking latest stats'
+ 
 
         #call functions here
         self.GetTemp()
