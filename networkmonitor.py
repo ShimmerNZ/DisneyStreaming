@@ -167,7 +167,7 @@ class Mainframe(tk.Frame):
 
         #sub count goes here
         self.Currentsubs = tk.StringVar()
-        tk.Label(self,textvariable=self.Adapterstate1, bg='#0b0c1b',fg='green', font=("HCo Gotham SSm",8,"italic")).grid(row=24, column=3, columnspan=6)
+        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='green', font=("HCo Gotham SSm",8,"italic")).grid(row=24, column=3, columnspan=6)
 
         
 
@@ -291,20 +291,21 @@ class Mainframe(tk.Frame):
 
     def GetSubscription(self):
         self.Currentsubs.set(self.Subscount)
+        self.Subscount=''
         CHANNEL_ID = "UCtjJTv95d8aUbRfjejXKOZA"
         DATA_SOURCE = "https://www.googleapis.com/youtube/v3/channels/?part=statistics&id="+CHANNEL_ID+"&key="+secrets['youtube_token']
         DATA_LOCATION1 = ["items", 0, "statistics", "viewCount"]
         DATA_LOCATION2 = ["items", 0, "statistics", "subscriberCount"]
         DATA_LOCATION3 = ["items", 0, "statistics", "videoCount"]
-        try:
-            data=urllib.request.urlopen(DATA_SOURCE).read()
-            subs=json.loads(data)["items"][0]["statistics"]["subscriberCount"]
-            views=json.loads(data)["items"][0]["statistics"]["viewCount"]
-            videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
-            self.Subscount=str("Subscriber Count: "+subs+ " View Count: "+views+" Video Count: "+ videos)
-            print(self.Subscount)
-        except RuntimeError as e:
-            print("Some error occured getting Youtube API data, retrying! -", e)
+    #    try:
+    #        data=urllib.request.urlopen(DATA_SOURCE).read()
+    #        subs=json.loads(data)["items"][0]["statistics"]["subscriberCount"]
+    #        views=json.loads(data)["items"][0]["statistics"]["viewCount"]
+    #        videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
+    #        self.Subscount=str("Subscriber Count: "+subs+ " View Count: "+views+" Video Count: "+ videos)
+    #        print(self.Subscount)
+    #    except RuntimeError as e:
+    #        print("Some error occured getting Youtube API data, retrying! -", e)
         self.after(self.TimerInterval4,self.GetCurrentServer)
               
   
