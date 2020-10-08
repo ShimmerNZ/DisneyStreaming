@@ -302,10 +302,7 @@ class Mainframe(tk.Frame):
             subs=json.loads(data)["items"][0]["statistics"]["subscriberCount"]
             views=json.loads(data)["items"][0]["statistics"]["viewCount"]
             videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
-            print(subs)
-            print(videos)
-            print(views)
-   
+            self.Subs="Subscriber Count: "+subs+ " View Count: "+views+" Video Count: "
             #self.Subs=subs
         except RuntimeError as e:
             print("Some error occured, retrying! -", e)
