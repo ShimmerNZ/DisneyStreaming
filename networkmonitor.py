@@ -297,8 +297,7 @@ class Mainframe(tk.Frame):
         DATA_LOCATION2 = ["items", 0, "statistics", "subscriberCount"]
         DATA_LOCATION3 = ["items", 0, "statistics", "videoCount"]
         try:
-            data=urllib.urlopen(DATA_SOURCE)
-            data=json.loads(data.read())
+            data=json.loads(requests.get(DATA_SOURCE).text)
             print(DATA_SOURCE)
             print(data)
             views, subs, video = data
