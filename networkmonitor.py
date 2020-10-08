@@ -13,6 +13,7 @@ from PIL import Image, ImageTk
 import time
 import tkinter as tk
 import speedify
+import urllib
 import json
 import re
 import requests
@@ -294,16 +295,20 @@ class Mainframe(tk.Frame):
         DATA_SOURCE = "https://www.googleapis.com/youtube/v3/channels/?part=statistics&id="+CHANNEL_ID+"&key="+secrets['youtube_token']
         DATA_LOCATION1 = ["items", 0, "statistics", "viewCount"]
         DATA_LOCATION2 = ["items", 0, "statistics", "subscriberCount"]
+        DATA_LOCATION3 = ["items", 0, "statistics", "videoCount"]
         try:
-            data=requests.get(DATA_SOURCE)
+            data=urllib.urlopen(DATA_SOURCE)
+            data=json.loads(data.read())
             print(DATA_SOURCE)
             print(data)
-            views, subs = data
+            views, subs, video = data
             subs = int(subs)
             views = int(views)
+            video = int(video)
             print("Subscribers:", subs)
             self.Subs=subs
             print("Views:", views)
+            print("Videos:", video)
         except RuntimeError as e:
             print("Some error occured, retrying! -", e)
         self.after(self.TimerInterval4,self.GetCurrentServer)
