@@ -300,9 +300,8 @@ class Mainframe(tk.Frame):
             data=json.loads(requests.get(DATA_SOURCE).text)
             print(DATA_SOURCE)
             print(data)
-            print(data[DATA_LOCATION1])
-            print(data[DATA_LOCATION2])
-            print(data[DATA_LOCATION3])
+            print(data["subscriberCount"])
+
             #self.Subs=subs
         except RuntimeError as e:
             print("Some error occured, retrying! -", e)
