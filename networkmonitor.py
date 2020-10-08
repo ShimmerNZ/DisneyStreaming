@@ -167,7 +167,7 @@ class Mainframe(tk.Frame):
 
         #sub count goes here
         self.Currentsubs = tk.StringVar()
-        tk.Label(self,textvariable=self.Currentsubs(), bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",8,"italic")).grid(row=23, column=3, columnspan=6)
+        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",8,"italic")).grid(row=23, column=3, columnspan=6)
         
 
         #variable time
