@@ -293,21 +293,14 @@ class Mainframe(tk.Frame):
         self.Currentsubs.set(self.Subs)
         CHANNEL_ID = "UCtjJTv95d8aUbRfjejXKOZA"
         DATA_SOURCE = "https://www.googleapis.com/youtube/v3/channels/?part=statistics&id="+CHANNEL_ID+"&key="+secrets['youtube_token']
-        DATA_LOCATION1 = ["items", 0, "statistics", "viewCount"]
-        DATA_LOCATION2 = ["items", 0, "statistics", "subscriberCount"]
-        DATA_LOCATION3 = ["items", 0, "statistics", "videoCount"]
         try:
             data=json.loads(requests.get(DATA_SOURCE).text)
             print(DATA_SOURCE)
             print(data)
-            views, subs, video = data
-            subs = int(subs)
-            views = int(views)
-            video = int(video)
-            print("Subscribers:", subs)
-            self.Subs=subs
-            print("Views:", views)
-            print("Videos:", video)
+            print(data['subscriberCount:'])
+            print(data['viewsCount:'])
+            print(data['videoCount:'])
+            #self.Subs=subs
         except RuntimeError as e:
             print("Some error occured, retrying! -", e)
         self.after(self.TimerInterval4,self.GetCurrentServer)
