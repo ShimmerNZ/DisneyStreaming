@@ -22,6 +22,13 @@ import psutil
 
 interface ="wlan0" # this is just a sample value
 
+try:
+    from /home/pi/secrets.py import secrets
+    print(secrets)
+except ImportError:
+    print('failed to read secrets file containing Youtube API key')
+    raise
+
 #CPU Temp Section
 cpu=CPUTemperature()
 global tx_prev
