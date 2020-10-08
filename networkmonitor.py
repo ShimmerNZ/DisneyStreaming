@@ -13,7 +13,7 @@ from PIL import Image, ImageTk
 import time
 import tkinter as tk
 import speedify
-import urllib
+import urllib.request
 import json
 import re
 import requests
@@ -297,11 +297,10 @@ class Mainframe(tk.Frame):
         DATA_LOCATION2 = ["items", 0, "statistics", "subscriberCount"]
         DATA_LOCATION3 = ["items", 0, "statistics", "videoCount"]
         try:
-            data=json.loads(requests.get(DATA_SOURCE).text)
-            print(DATA_SOURCE)
-            print(data)
-            print(data["items",0,"statistics"])
-
+            data=urllib.request.urlopen(DATA_SOURCE)
+            subs=json.loads(data)DATA_LOCATION2
+            print(subs)
+   
             #self.Subs=subs
         except RuntimeError as e:
             print("Some error occured, retrying! -", e)
