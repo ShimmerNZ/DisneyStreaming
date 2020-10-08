@@ -168,7 +168,7 @@ class Mainframe(tk.Frame):
 
         #sub count goes here
         self.Currentsubs = tk.StringVar()
-        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=23, column=3, rowspan=1)
+        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=18, column=3, rowspan=1)
         
 
         #variable time
@@ -179,8 +179,8 @@ class Mainframe(tk.Frame):
         self.TempC = 0
         self.TempF = 0
         self.ProgressStyle = 'green.Vertical.TProgressbar'
-        self.State = 'checking'
-        self.Adapter1 = 'checking'
+        self.State = 'checking Connection State'
+        self.Adapter1 = ''
         self.Adapter2 = ''
         self.Adapter3 = ''
         self.Adapter4 = ''
