@@ -292,7 +292,7 @@ class Mainframe(tk.Frame):
     def GetSubs(self):
         self.Currentsubs.set(self.Subs)
         CHANNEL_ID = "UCtjJTv95d8aUbRfjejXKOZA"
-        DATA_SOURCE = "https://www.googleapis.com/youtube/v3/channels/?part=statistics&id="+CHANNEL_ID+"&key="+secrets['youtube_token']
+        DATA_SOURCE = "https://www.googleapis.com/youtube/v3/channels/?part=statistics&id="+CHANNEL_ID+"&key="+secrets['youtube_token'].read()
         DATA_LOCATION1 = ["items", 0, "statistics", "viewCount"]
         DATA_LOCATION2 = ["items", 0, "statistics", "subscriberCount"]
         DATA_LOCATION3 = ["items", 0, "statistics", "videoCount"]
