@@ -300,7 +300,7 @@ class Mainframe(tk.Frame):
             data=json.loads(requests.get(DATA_SOURCE).text)
             print(DATA_SOURCE)
             print(data)
-            print(data["items", 0, "statistics", "subscriberCount"])
+            print(data["items"])
 
             #self.Subs=subs
         except RuntimeError as e:
