@@ -14,6 +14,7 @@ import time
 import tkinter as tk
 import speedify
 import json
+import re
 import requests
 import os
 import subprocess
