@@ -22,8 +22,10 @@ import psutil
 
 interface ="wlan0" # this is just a sample value
 
+
+#import stuff I don't want to load into github
 try:
-    from /home/pi/secrets.py import secrets
+    from secrets import secrets
     print(secrets)
 except ImportError:
     print('failed to read secrets file containing Youtube API key')
@@ -165,6 +167,7 @@ class Mainframe(tk.Frame):
         self.TimerInterval = 700
         self.TimerInterval2 = 2000
         self.TimerInterval3 = 5000
+        self.TimerInterval4 = 300000 # 5min poll for Sub count
         self.TempC = 0
         self.TempF = 0
         self.ProgressStyle = 'green.Vertical.TProgressbar'
@@ -177,13 +180,15 @@ class Mainframe(tk.Frame):
         self.txspeed = ''
         self.Server = 'checking Server'
         self.CPUUtil = ''
-        # call Get Temp which will call itself after a delay
+
+        #call functions here
         self.GetTemp()
         self.GetCPU()
         self.GetState()
         self.GetAdapter()
         self.GetSpeed()
         self.GetCurrentServer()
+        self.GetSubs()
         
     def GetTemp(self):
         ## replace this with code to read sensor
@@ -253,8 +258,6 @@ class Mainframe(tk.Frame):
                                 self.Adapter4 = self.Adapter4 + 'No signal'
                     else:
                         self.Adapter4 = self.Adapter4 + '\n'
-
-	# Now repeat call
         self.after(self.TimerInterval3,self.GetAdapter)
 
     def GetCurrentServer(self):
@@ -276,6 +279,28 @@ class Mainframe(tk.Frame):
 
     def Special(self):
         print('reserved for later use')
+
+    def GetSubs(self):
+        self.Currentsubs.set(self.Subs)
+        CHANNEL_ID = "UCtjJTv95d8aUbRfjejXKOZA"
+        DATA_SOURCE = "https://www.googleapis.com/youtube/v3/channels/?part=statistics&id="+CHANNEL_ID+"&key="+secrets['youtube_token']
+        DATA_LOCATION1 = ["items", 0, "statistics", "viewCount"]
+        DATA_LOCATION2 = ["items", 0, "statistics", "subscriberCount"]
+        try:
+            json_url=urlopen(DATA_SOURCE)
+            data = json.loads(json_url.read()
+            views, subs = data
+            subs = int(subs)
+            views = int(views)
+            print("Subscribers:", subs)
+            print("Views:", views)
+        if last_subs < subs:  # ooh it went up!
+            print("New subscriber!")
+            pyportal.play_file(cwd+"/coin.wav")
+        last_subs = subs
+        except RuntimeError as e:
+            print("Some error occured, retrying! -", e)
+        self.after(self.TimerInterval4,self.GetCurrentServer)
               
   
     def GetSpeed(self):
