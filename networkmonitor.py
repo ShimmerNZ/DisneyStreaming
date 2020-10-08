@@ -29,7 +29,7 @@ interface ="wlan0" # this is just a sample value
 #import stuff I don't want to load into github
 try:
     from secrets import secrets
-    print(secrets)
+    #print(secrets)
 except ImportError:
     print('failed to read secrets file containing Youtube API key')
     raise
@@ -168,7 +168,7 @@ class Mainframe(tk.Frame):
 
         #sub count goes here
         self.Currentsubs = tk.StringVar()
-        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=22, column=3, rowspan=3)
+        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=23, column=3, rowspan=1)
         
 
         #variable time
@@ -188,7 +188,7 @@ class Mainframe(tk.Frame):
         self.txspeed = ''
         self.Server = 'checking Server'
         self.CPUUtil = ''
-        self.Subs='0'
+        self.Subs=''
 
         #call functions here
         self.GetTemp()
@@ -301,8 +301,8 @@ class Mainframe(tk.Frame):
             subs=json.loads(data)["items"][0]["statistics"]["subscriberCount"]
             views=json.loads(data)["items"][0]["statistics"]["viewCount"]
             videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
-            self.Subs=str("Subscriber Count: "+subs+ " View Count: "+views+" Video Count: ")
-            print("Subscriber Count: "+subs+ " View Count: "+views+" Video Count: ")
+            subscount=str("Subscriber Count: "+subs+ " View Count: "+views+" Video Count: "+ videos)
+            self.Subs=subscount
             #self.Subs=subs
         except RuntimeError as e:
             print("Some error occured getting Youtube API data, retrying! -", e)
