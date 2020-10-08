@@ -298,8 +298,12 @@ class Mainframe(tk.Frame):
         DATA_LOCATION3 = ["items", 0, "statistics", "videoCount"]
         try:
             data=urllib.request.urlopen(DATA_SOURCE)
-            subs=json.loads(data)DATA_LOCATION2
+            subs=json.loads(data)["items", 0, "statistics", "subscriberCount"]
+            views=json.loads(data)["items", 0, "statistics", "viewCount"]
+            videos=json.loads(data)["items", 0, "statistics", "videoCount"]
             print(subs)
+            print(videos)
+            print(views)
    
             #self.Subs=subs
         except RuntimeError as e:
