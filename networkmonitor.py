@@ -296,6 +296,7 @@ class Mainframe(tk.Frame):
         DATA_LOCATION2 = ["items", 0, "statistics", "subscriberCount"]
         try:
             data=requests.get(DATA_SOURCE)
+            print(DATA_SOURCE)
             print(data)
             views, subs = data
             subs = int(subs)
