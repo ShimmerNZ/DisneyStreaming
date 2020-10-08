@@ -128,7 +128,7 @@ class Mainframe(tk.Frame):
  
         #sub count goes here
         self.Currentsubs = tk.StringVar()
-        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='green', font=("HCo Gotham SSm",10,"italic")).grid(row=24, column=3, columnspan=6)
+        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='LightSkyBlue2', font=("HCo Gotham SSm",10,"italic")).grid(row=24, column=3, columnspan=6)
 
         #Exit and Connect Buttons
         img4=Image.open('/home/pi/DisneyStreaming/exit.png').resize((40,40))
