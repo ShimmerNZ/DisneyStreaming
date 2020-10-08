@@ -107,7 +107,6 @@ class Mainframe(tk.Frame):
         tk.Label(self,text='Mbps', bg='#0b0c1b',fg='#9193a8', font=("HCo Gotham SSm",16)).grid(row=1, column=7, columnspan=2)
 
         self.TXspeed = tk.StringVar()
-
         tk.Label(self,textvariable=self.TXspeed , bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",40)).grid(row=2, column=6, rowspan=2, columnspan=3)
         self.RXspeed = tk.StringVar()
         tk.Label(self,textvariable=self.RXspeed , bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",40)).grid(row=2, column=3, rowspan=2, columnspan=3)
@@ -168,7 +167,7 @@ class Mainframe(tk.Frame):
 
         #sub count goes here
         self.Currentsubs = tk.StringVar()
-        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=18, column=3, rowspan=1)
+        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",8,"italic")).grid(row=18, column=3, rowspan=1)
         
 
         #variable time
@@ -188,7 +187,7 @@ class Mainframe(tk.Frame):
         self.txspeed = ''
         self.Server = 'checking Server'
         self.CPUUtil = ''
-        self.Subscount = ''
+        self.Subscount = 'checking latest stats'
 
         #call functions here
         self.GetTemp()
@@ -302,7 +301,7 @@ class Mainframe(tk.Frame):
             views=json.loads(data)["items"][0]["statistics"]["viewCount"]
             videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
             subscount=str("Subscriber Count: "+subs+ " View Count: "+views+" Video Count: "+ videos)
-            self.Subscount=subscount
+            self.Subscount=str(subscount)
             print(subscount + self.Subscount)
         except RuntimeError as e:
             print("Some error occured getting Youtube API data, retrying! -", e)
