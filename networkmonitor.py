@@ -196,7 +196,7 @@ class Mainframe(tk.Frame):
         self.GetAdapter()
         self.GetSpeed()
         self.GetCurrentServer()
-        self.GetSubs()
+        self.GetSubscription()
         
     def GetTemp(self):
         ## replace this with code to read sensor
@@ -288,7 +288,7 @@ class Mainframe(tk.Frame):
     def Special(self):
         print('reserved for later use')
 
-    def GetSubs(self):
+    def GetSubsription(self):
         self.Currentsubs.set(self.Subscount)
         CHANNEL_ID = "UCtjJTv95d8aUbRfjejXKOZA"
         DATA_SOURCE = "https://www.googleapis.com/youtube/v3/channels/?part=statistics&id="+CHANNEL_ID+"&key="+secrets['youtube_token']
@@ -300,12 +300,10 @@ class Mainframe(tk.Frame):
             subs=json.loads(data)["items"][0]["statistics"]["subscriberCount"]
             views=json.loads(data)["items"][0]["statistics"]["viewCount"]
             videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
-            subscount=str("Subscriber Count: "+subs+ " View Count: "+views+" Video Count: "+ videos)
-            self.Subscount="ive changed"
+            self.Subscount=str("Subscriber Count: "+subs+ " View Count: "+views+" Video Count: "+ videos)
             print(subscount + self.Subscount)
         except RuntimeError as e:
             print("Some error occured getting Youtube API data, retrying! -", e)
-        self.Subscount="ive changed"
         self.after(self.TimerInterval4,self.GetCurrentServer)
               
   
