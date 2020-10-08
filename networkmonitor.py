@@ -288,7 +288,7 @@ class Mainframe(tk.Frame):
     def Special(self):
         print('reserved for later use')
 
-    def GetSubsription(self):
+    def GetSubscription(self):
         self.Currentsubs.set(self.Subscount)
         CHANNEL_ID = "UCtjJTv95d8aUbRfjejXKOZA"
         DATA_SOURCE = "https://www.googleapis.com/youtube/v3/channels/?part=statistics&id="+CHANNEL_ID+"&key="+secrets['youtube_token']
