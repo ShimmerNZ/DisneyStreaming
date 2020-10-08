@@ -167,7 +167,7 @@ class Mainframe(tk.Frame):
 
         #sub count goes here
         self.Currentsubs = tk.StringVar()
-        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",8,"italic")).grid(row=18, column=3, rowspan=1)
+        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",8,"italic")).grid(row=22, column=3, rowspan=1)
         
 
         #variable time
@@ -301,7 +301,7 @@ class Mainframe(tk.Frame):
             views=json.loads(data)["items"][0]["statistics"]["viewCount"]
             videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
             subscount=str("Subscriber Count: "+subs+ " View Count: "+views+" Video Count: "+ videos)
-            self.Subscount=str(subscount)
+            self.Subscount="ive changed"
             print(subscount + self.Subscount)
         except RuntimeError as e:
             print("Some error occured getting Youtube API data, retrying! -", e)
