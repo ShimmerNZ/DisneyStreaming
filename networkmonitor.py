@@ -300,7 +300,7 @@ class Mainframe(tk.Frame):
             print(self.Subscount)
         except RuntimeError as e:
             print("Some error occured getting Youtube API data, retrying! -", e)
-        self.after(self.TimerInterval4,self.GetCurrentServer)
+        self.after(self.TimerInterval4,self.GetSubscription)
 
            
     def Special(self):
