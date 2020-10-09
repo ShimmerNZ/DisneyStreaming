@@ -119,13 +119,13 @@ class Mainframe(tk.Frame):
 
 
         self.Adapterstate1 = tk.StringVar()
-        tk.Label(self,textvariable=self.Adapterstate1, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=4, rowspan=10)
+        tk.Label(self,textvariable=self.Adapterstate1, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=4, rowspan=14)
         self.Adapterstate2 = tk.StringVar()
-        tk.Label(self,textvariable=self.Adapterstate2, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=5, rowspan=10, columnspan=2)
+        tk.Label(self,textvariable=self.Adapterstate2, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=5, rowspan=14, columnspan=2)
         self.Adapterstate3 = tk.StringVar()
-        tk.Label(self,textvariable=self.Adapterstate3, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=8, rowspan=10)
+        tk.Label(self,textvariable=self.Adapterstate3, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=8, rowspan=14)
         self.Adapterstate4= tk.StringVar()
-        tk.Label(self,textvariable=self.Adapterstate4, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=7, rowspan=10)
+        tk.Label(self,textvariable=self.Adapterstate4, bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",14)).grid(row=8, column=7, rowspan=14)
  
         #sub count goes here
         self.Currentsubs = tk.StringVar()
