@@ -154,11 +154,11 @@ class Mainframe(tk.Frame):
         s.configure("yellow.Vertical.TProgressbar", troughcolor="gray", background="yellow")
         s.configure("red.Vertical.TProgressbar", troughcolor="gray", background="red")
         # use the above to set colour below
-        progress=ttk.Progressbar(self, maximum=90, orient="vertical",length=250,style="green.Vertical.TProgressbar",variable=self.TemperatureC)
+        progress=ttk.Progressbar(self, maximum=90, orient="vertical",length=220,style="green.Vertical.TProgressbar",variable=self.TemperatureC)
         progress.grid(row=3,column=1, rowspan=13)
         progress.config(mode='determinate')
 
-        progress2=ttk.Progressbar(self,orient='vertical',length=250, variable=self.CPUutil)
+        progress2=ttk.Progressbar(self,orient='vertical',length=220, variable=self.CPUutil)
         progress2.grid(row=3,column=2, rowspan=13)
         progress2.config(mode='determinate')
 
