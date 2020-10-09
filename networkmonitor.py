@@ -129,7 +129,7 @@ class Mainframe(tk.Frame):
  
         #sub count goes here
         self.Currentsubs = tk.StringVar()
-        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='LightSkyBlue2', font=("HCo Gotham SSm",14,"italic")).grid(row=22, column=3, columnspan=6, rowspan=2)
+        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='LightSkyBlue2', font=("HCo Gotham SSm",12,"italic")).grid(row=23, column=3, columnspan=6, rowspan=1, sticky='S')
 
         #Exit and Connect Buttons
         img4=Image.open('/home/pi/DisneyStreaming/exit.png').resize((40,40))
@@ -167,7 +167,7 @@ class Mainframe(tk.Frame):
         img3=ImageTk.PhotoImage(img3)
         lbl=tk.Button(self, image=img3, command=self.Special, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl.image = img3
-        lbl.grid(row=22, column=1, columnspan=2, rowspan=2)
+        lbl.grid(row=22, column=1, columnspan=2, rowspan=2, sticky='S')
        
 
         #variable time
