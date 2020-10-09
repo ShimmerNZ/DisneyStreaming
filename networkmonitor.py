@@ -158,7 +158,7 @@ class Mainframe(tk.Frame):
         progress.grid(row=4,column=1, rowspan=13)
         progress.config(mode='determinate')
 
-        progress2=ttk.Progressbar(self,orient='vertical',len30, variable=self.CPUutil)
+        progress2=ttk.Progressbar(self,orient='vertical',length=230, variable=self.CPUutil)
         progress2.grid(row=4,column=2, rowspan=13)
         progress2.config(mode='determinate')
 
