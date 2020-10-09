@@ -74,13 +74,13 @@ class Mainframe(tk.Frame):
         self.TemperatureC = tk.IntVar()
         tk.Label(self,textvariable = self.TemperatureC,bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10)).grid(row=18, column=1)
         TempHeading='CPU'+'\n'+'Temp'
-        tk.Label(self,text=TempHeading,bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10) ).grid(row=2, column=1, sticky='S')
+        tk.Label(self,text=TempHeading,bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10) ).grid(row=2, column=1, sticky='S', rowspan=2)
         tk.Label(self,text='°C',bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10) ).grid(row=21, column=1)
 
         self.CPUutil=tk.IntVar()
         tk.Label(self,textvariable = self.CPUutil,bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10)).grid(row=18, column=2)
         CPUHeading='CPU'+'\n'+'Util'
-        tk.Label(self,text=CPUHeading,bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10) ).grid(row=2, column=2, sticky='S')
+        tk.Label(self,text=CPUHeading,bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10) ).grid(row=2, column=2, sticky='S', rowspan=2)
         tk.Label(self,text='%',bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10)).grid(row=21, column=2)
 
 
