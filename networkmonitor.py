@@ -68,6 +68,7 @@ class Mainframe(tk.Frame):
         tk.Frame.__init__(self,master,*args,**kwargs)
 
         self.configure(bg='#0b0c1b')
+        root.wm_attributes('-fullscreen','true')
 
         #CPU headins
         self.TemperatureC = tk.IntVar()
@@ -359,7 +360,6 @@ class App(tk.Tk):
         self.title('B&A Live')
         # Make sure app window is big enough to show title 
         self.geometry('720x480')
-        self.window.attributes('-fullscreen', True)  
         self['background']='#0b0c1b'
         # create and pack a Mainframe window
         Mainframe(self).pack()
