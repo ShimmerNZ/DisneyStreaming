@@ -358,7 +358,8 @@ class App(tk.Tk):
         # set the title bar text
         self.title('B&A Live')
         # Make sure app window is big enough to show title 
-        self.geometry('800x480')
+        self.geometry('720x480')
+        self.window.attributes('-fullscreen', True)  
         self['background']='#0b0c1b'
         # create and pack a Mainframe window
         Mainframe(self).pack()
