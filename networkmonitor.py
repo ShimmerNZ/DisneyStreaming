@@ -68,7 +68,7 @@ class Mainframe(tk.Frame):
         tk.Frame.__init__(self,master,*args,**kwargs)
 
         self.configure(bg='#0b0c1b')
-        root.wm_attributes('-fullscreen','true')
+        self.wm_attributes('-fullscreen','true')
 
         #CPU headins
         self.TemperatureC = tk.IntVar()
