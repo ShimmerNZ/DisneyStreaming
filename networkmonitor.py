@@ -172,8 +172,8 @@ class Mainframe(tk.Frame):
 
         #variable time
         self.TimerInterval = 700
-        self.TimerInterval2 = 2000
-        self.TimerInterval3 = 5000
+        self.TimerInterval2 = 1000
+        self.TimerInterval3 = 2000
         self.TimerInterval4 = 300000 # 5min poll for Sub count
         self.TempC = 0
         self.TempF = 0
