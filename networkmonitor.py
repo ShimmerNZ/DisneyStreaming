@@ -74,13 +74,13 @@ class Mainframe(tk.Frame):
         self.TemperatureC = tk.IntVar()
         tk.Label(self,textvariable = self.TemperatureC,bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10)).grid(row=18, column=1)
         TempHeading='CPU'+'\n'+'Temp'
-        tk.Label(self,text=TempHeading,bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10) ).grid(row=2, column=1)
+        tk.Label(self,text=TempHeading,bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10) ).grid(row=2, column=1, sticky='S')
         tk.Label(self,text='°C',bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10) ).grid(row=21, column=1)
 
         self.CPUutil=tk.IntVar()
         tk.Label(self,textvariable = self.CPUutil,bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10)).grid(row=18, column=2)
         CPUHeading='CPU'+'\n'+'Util'
-        tk.Label(self,text=CPUHeading,bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10) ).grid(row=2, column=2)
+        tk.Label(self,text=CPUHeading,bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10) ).grid(row=2, column=2, sticky='S')
         tk.Label(self,text='%',bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10)).grid(row=21, column=2)
 
 
@@ -154,11 +154,11 @@ class Mainframe(tk.Frame):
         s.configure("yellow.Vertical.TProgressbar", troughcolor="gray", background="yellow")
         s.configure("red.Vertical.TProgressbar", troughcolor="gray", background="red")
         # use the above to set colour below
-        progress=ttk.Progressbar(self, maximum=90, orient="vertical",length=220,style="green.Vertical.TProgressbar",variable=self.TemperatureC)
+        progress=ttk.Progressbar(self, maximum=90, orient="vertical",length=230,style="green.Vertical.TProgressbar",variable=self.TemperatureC)
         progress.grid(row=4,column=1, rowspan=13)
         progress.config(mode='determinate')
 
-        progress2=ttk.Progressbar(self,orient='vertical',length=220, variable=self.CPUutil)
+        progress2=ttk.Progressbar(self,orient='vertical',len30, variable=self.CPUutil)
         progress2.grid(row=4,column=2, rowspan=13)
         progress2.config(mode='determinate')
 
