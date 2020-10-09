@@ -129,7 +129,7 @@ class Mainframe(tk.Frame):
  
         #sub count goes here
         self.Currentsubs = tk.StringVar()
-        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='LightSkyBlue2', font=("HCo Gotham SSm",10,"italic")).grid(row=24, column=3, columnspan=6)
+        tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='LightSkyBlue2', font=("HCo Gotham SSm",10,"italic")).grid(row=2, column=3, columnspan=6, rowspan=2)
 
         #Exit and Connect Buttons
         img4=Image.open('/home/pi/DisneyStreaming/exit.png').resize((40,40))
@@ -163,7 +163,7 @@ class Mainframe(tk.Frame):
         progress2.config(mode='determinate')
 
         #slap in a logo here
-        img3=Image.open('/home/pi/DisneyStreaming/Brianlogo.png').resize((80,80))
+        img3=Image.open('/home/pi/DisneyStreaming/Brianlogo.png').resize((70,70))
         img3=ImageTk.PhotoImage(img3)
         lbl=tk.Button(self, image=img3, command=self.Special, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl.image = img3
