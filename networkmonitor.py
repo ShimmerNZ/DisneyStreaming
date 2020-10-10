@@ -68,7 +68,7 @@ class PopUpReconnect(tk.Toplevel):
     Upon confirmation, the App is destroyed.
     If not, the popup closes and no further action is taken
     """
-    def __init__(self, arg, master=None):
+    def __init__(self, arg, State master=None):
         super().__init__(master)
         tk.Label(self, text="What would you like to do?").pack()
         tk.Button(self, text='Reconnect', command=self.reconnect(arg), fg='green').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
@@ -172,7 +172,7 @@ class Mainframe(tk.Frame):
         imgoff=ImageTk.PhotoImage(img6)
         lbl2=tk.Button(self, image=imgon, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         #lbl2['command']= lambda arg=lbl2:self.connect(arg)
-        lbl2['command']= lambda arg=lbl2:PopUpReconnect(arg)
+        lbl2['command']= lambda arg=lbl2:PopUpReconnect(arg,State)
         lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
 
         #Progress bar code 
@@ -205,7 +205,6 @@ class Mainframe(tk.Frame):
         self.TempC = 0
         self.TempF = 0
         self.ProgressStyle = 'green.Vertical.TProgressbar'
-        global State
         self.State = 'checking Connection State'
         self.Adapter1 = ''
         self.Adapter2 = ''
