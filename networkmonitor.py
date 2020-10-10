@@ -86,6 +86,7 @@ class PopUpReconnect(tk.Toplevel):
         else:
             speedify.disconnect()
             arg['image']= imgoff
+        self.destroy
 
 
 class Mainframe(tk.Frame):
