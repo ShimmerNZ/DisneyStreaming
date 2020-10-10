@@ -71,7 +71,7 @@ class PopUpReconnect(tk.Toplevel):
     def __init__(self, arg, State, master=None):
         super().__init__(master)
         tk.Label(self, text="What would you like to do?").pack()
-        tk.Button(self, text='Reconnect', command=self.reconnect(arg, State), fg='green').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Reconnect', command=self.reconnect, fg='green').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Cancel', command=self.destroy).pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Reset Wifi', command=self.destroy, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Disconnect', command=self.destroy, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
