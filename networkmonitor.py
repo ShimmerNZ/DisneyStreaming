@@ -63,6 +63,31 @@ class PopUpConfirmQuit(tk.Toplevel):
     def Exit(self):
         exit()
  
+class PopUpReconnect(tk.Toplevel):
+    """A TopLevel popup that asks for confirmation that the user wants to quit.
+    Upon confirmation, the App is destroyed.
+    If not, the popup closes and no further action is taken
+    """
+    def __init__(self, arg, master=None):
+        super().__init__(master)
+        tk.Label(self, text="What would you like to do?").pack()
+        tk.Button(self, text='Reconnect', command=self.connect(arg), fg='green').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Cancel', command=self.destroy).pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Reset Wifi', command=self.destroy, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Disconnect', command=self.destroy, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+    
+    def connect(self, arg):
+        checkState = self.State
+        checkState = str(checkState)
+        if checkState!="CONNECTED":
+
+            speedify.connect_closest()
+            arg['image']= imgon
+        else:
+            speedify.disconnect()
+            arg['image']= imgoff
+
+
 class Mainframe(tk.Frame):
     def __init__(self,master,*args,**kwargs):
         tk.Frame.__init__(self,master,*args,**kwargs)
@@ -145,7 +170,8 @@ class Mainframe(tk.Frame):
         img6=Image.open('/home/pi/DisneyStreaming/off.png')
         imgoff=ImageTk.PhotoImage(img6)
         lbl2=tk.Button(self, image=imgon, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
-        lbl2['command']= lambda arg=lbl2:self.connect(arg)
+        #lbl2['command']= lambda arg=lbl2:self.connect(arg)
+        lbl2['command']= lambda arg=lbl2:PopUpReconnect(self,arg)
         lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
 
         #Progress bar code 
