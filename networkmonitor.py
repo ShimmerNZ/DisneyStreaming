@@ -205,6 +205,7 @@ class Mainframe(tk.Frame):
         self.TempC = 0
         self.TempF = 0
         self.ProgressStyle = 'green.Vertical.TProgressbar'
+        global self.State
         self.State = 'checking Connection State'
         self.Adapter1 = ''
         self.Adapter2 = ''
