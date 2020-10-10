@@ -68,7 +68,7 @@ class PopUpReconnect(tk.Toplevel):
     Upon confirmation, the App is destroyed.
     If not, the popup closes and no further action is taken
     """
-    def __init__(self, arg, State master=None):
+    def __init__(self, arg, State, master=None):
         super().__init__(master)
         tk.Label(self, text="What would you like to do?").pack()
         tk.Button(self, text='Reconnect', command=self.reconnect(arg), fg='green').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
