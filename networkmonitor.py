@@ -298,7 +298,7 @@ class Mainframe(tk.Frame):
                                 linkpercent=(int(int(result[0])/int(result[1])*100))
                                 self.Adapter4 = self.Adapter4 + (str(linkpercent) + '%\n')
                             elif 'Not-Associated' in line:
-                                self.Adapter4 = self.Adapter4 + 'No signal'
+                                self.Adapter4 = self.Adapter4 + 'No signal' +'%\n''
                     else:
                         self.Adapter4 = self.Adapter4 + '\n'
         self.after(self.TimerInterval3,self.GetAdapter)
