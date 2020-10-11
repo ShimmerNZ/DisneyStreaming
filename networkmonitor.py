@@ -209,7 +209,7 @@ class Mainframe(tk.Frame):
         self.TimerInterval = 700
         self.TimerInterval2 = 1000
         self.TimerInterval3 = 2000
-        self.TimerInterval4 = 300000 # 5min poll for Sub count
+        self.TimerInterval4 = 60000 # 1min poll for Sub count
         self.TempC = 0
         self.TempF = 0
         self.ProgressStyle = 'green.Vertical.TProgressbar'
