@@ -73,7 +73,8 @@ class PopUpReconnect(tk.Toplevel):
         tk.Label(self, text="What would you like to do?").pack()
         tk.Button(self, text='Connect', command=lambda: self.reconnect(arg), fg='green').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Cancel', command=self.destroy).pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
-        tk.Button(self, text='Reset Wifi', command=self.resetwifi, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Reset Wifi', command=self.resetwifi, fg='orange').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Reset Wifi', command=self.resetnetwork, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Disconnect', command=lambda: self.disconnect(arg), fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
     
     def reconnect(self, arg):
@@ -91,6 +92,10 @@ class PopUpReconnect(tk.Toplevel):
         os.system('sudo ip link set wlan1 up')
         self.destroy()
 
+    def resetnetwork(self):
+        os.system('sudo systemctl daemon-reload')
+        os.system('sudo systemctl restart dhcpcd')'
+        self.destroy()
 
 class Mainframe(tk.Frame):
     def __init__(self,master,*args,**kwargs):
