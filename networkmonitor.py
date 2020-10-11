@@ -223,6 +223,7 @@ class Mainframe(tk.Frame):
         self.Server = 'checking Server'
         self.CPUUtil = ''
         self.Subscount = 'checking latest stats'
+        self.ignorepoll = 0
 
         #call functions here
         self.GetTemp()
@@ -298,7 +299,7 @@ class Mainframe(tk.Frame):
                                 linkpercent=(int(int(result[0])/int(result[1])*100))
                                 self.Adapter4 = self.Adapter4 + (str(linkpercent) + '%\n')
                             elif 'Not-Associated' in line:
-                                self.Adapter4 = self.Adapter4 + 'No signal' +'%\n'
+                                self.Adapter4 = self.Adapter4 + 'No signal' +'\n'
                     else:
                         self.Adapter4 = self.Adapter4 + '\n'
         self.after(self.TimerInterval3,self.GetAdapter)
@@ -321,20 +322,23 @@ class Mainframe(tk.Frame):
             arg['image']= imgoff
 
     def GetSubscription(self):
-        CHANNEL_ID = "UCtjJTv95d8aUbRfjejXKOZA"
-        DATA_SOURCE = "https://www.googleapis.com/youtube/v3/channels/?part=statistics&id="+CHANNEL_ID+"&key="+secrets['youtube_token']
-        DATA_LOCATION1 = ["items", 0, "statistics", "viewCount"]
-        DATA_LOCATION2 = ["items", 0, "statistics", "subscriberCount"]
-        DATA_LOCATION3 = ["items", 0, "statistics", "videoCount"]
-        try:
-            data=urllib.request.urlopen(DATA_SOURCE).read()
-            subs=json.loads(data)["items"][0]["statistics"]["subscriberCount"]
-            views=json.loads(data)["items"][0]["statistics"]["viewCount"]
-            videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
-            self.Currentsubs.set(str("Subscriber Count: "+subs+ "       View Count: "+views+"       Video Count: "+ videos))
-            print(self.Subscount)
-        except urllib.error.URLError as e:
-            print("Some error occured getting Youtube API data, retrying! -", e)
+        if self.ignorepoll==0:
+            self.ignorepoll=1
+        else:
+            CHANNEL_ID = "UCtjJTv95d8aUbRfjejXKOZA"
+            DATA_SOURCE = "https://www.googleapis.com/youtube/v3/channels/?part=statistics&id="+CHANNEL_ID+"&key="+secrets['youtube_token']
+            DATA_LOCATION1 = ["items", 0, "statistics", "viewCount"]
+            DATA_LOCATION2 = ["items", 0, "statistics", "subscriberCount"]
+            DATA_LOCATION3 = ["items", 0, "statistics", "videoCount"]
+            try:
+                data=urllib.request.urlopen(DATA_SOURCE).read()
+                subs=json.loads(data)["items"][0]["statistics"]["subscriberCount"]
+                views=json.loads(data)["items"][0]["statistics"]["viewCount"]
+                videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
+                self.Currentsubs.set(str("Subscriber Count: "+subs+ "       View Count: "+views+"       Video Count: "+ videos))
+                print(self.Subscount)
+            except urllib.error.URLError as e:
+                print("Some error occured getting Youtube API data, retrying! -", e)
         self.after(self.TimerInterval4,self.GetSubscription)
 
            
