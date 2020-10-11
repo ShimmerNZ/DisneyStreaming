@@ -90,6 +90,7 @@ class PopUpReconnect(tk.Toplevel):
 
     def resetwifi(self):
         os.system('sudo ip link set wlan1 down')
+        time.sleep(2)
         os.system('sudo ip link set wlan1 up')
         self.destroy()
 
