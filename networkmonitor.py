@@ -74,7 +74,7 @@ class PopUpReconnect(tk.Toplevel):
         tk.Button(self, text='Connect', command=lambda: self.reconnect(arg), fg='green').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Cancel', command=self.destroy).pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Reset Wifi', command=self.resetwifi, fg='orange').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
-        tk.Button(self, text='Reset Wifi', command=self.resetnetwork, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Reset Network', command=self.resetnetwork, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Disconnect', command=lambda: self.disconnect(arg), fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
     
     def reconnect(self, arg):
@@ -333,7 +333,7 @@ class Mainframe(tk.Frame):
             videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
             self.Currentsubs.set(str("Subscriber Count: "+subs+ "       View Count: "+views+"       Video Count: "+ videos))
             print(self.Subscount)
-        except RuntimeError as e:
+        except urllib.error.URLerror as e:
             print("Some error occured getting Youtube API data, retrying! -", e)
         self.after(self.TimerInterval4,self.GetSubscription)
 
