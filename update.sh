@@ -8,4 +8,4 @@ sudo chmod +x /home/pi/DisneyStreaming/stream.sh
 sudo chmod +x /home/pi/DisneyStreaming/wifi.sh
 sudo chmod +x /home/pi/DisneyStreaming/update.sh
 sudo cp /home/pi/DisneyStreaming/update.sh /home/pi/update.sh
-sleep 1
+sleep 2
