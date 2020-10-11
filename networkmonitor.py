@@ -94,7 +94,7 @@ class PopUpReconnect(tk.Toplevel):
 
     def resetnetwork(self):
         os.system('sudo systemctl daemon-reload')
-        os.system('sudo systemctl restart dhcpcd')'
+        os.system('sudo systemctl restart dhcpcd')
         self.destroy()
 
 class Mainframe(tk.Frame):
