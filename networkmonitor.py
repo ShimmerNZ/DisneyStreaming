@@ -71,27 +71,24 @@ class PopUpReconnect(tk.Toplevel):
     def __init__(self, arg, master=None):
         super().__init__(master)
         tk.Label(self, text="What would you like to do?").pack()
-        tk.Button(self, text='Reconnect', command=lambda: self.reconnect(arg), fg='green').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Connect', command=lambda: self.reconnect(arg), fg='green').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Cancel', command=self.destroy).pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Reset Wifi', command=self.resetwifi, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Disconnect', command=lambda: self.disconnect(arg), fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
     
     def reconnect(self, arg):
-        speedify.disconnect()
-        arg['image']= imgoff
-        speedify.connect_closest()
         arg['image']= imgon
+        speedify.connect_closest()
         self.destroy()
 
     def disconnect(self, arg):
-        speedify.disconnect()
         arg['image']= imgoff
+        speedify.disconnect()
         self.destroy()
 
     def resetwifi(self):
         os.system('sudo ip link set wlan1 down')
-        time.sleep(2)
-        #os.system('sudo ip link set wlan1 up')
+        os.system('sudo ip link set wlan1 up')
         self.destroy()
 
 
