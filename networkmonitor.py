@@ -68,24 +68,30 @@ class PopUpReconnect(tk.Toplevel):
     Upon confirmation, the App is destroyed.
     If not, the popup closes and no further action is taken
     """
-    def __init__(self, arg, State, master=None):
+    def __init__(self, arg, master=None):
         super().__init__(master)
         tk.Label(self, text="What would you like to do?").pack()
-        tk.Button(self, text='Reconnect', command=lambda: self.reconnect(arg,State), fg='green').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Reconnect', command=lambda: self.reconnect(arg), fg='green').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
         tk.Button(self, text='Cancel', command=self.destroy).pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
-        tk.Button(self, text='Reset Wifi', command=self.destroy, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
-        tk.Button(self, text='Disconnect', command=self.destroy, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Reset Wifi', command=self.resetwifi, fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
+        tk.Button(self, text='Disconnect', command=lambda: self.disconnect(arg), fg='red').pack(side=tk.RIGHT, fill=tk.BOTH, padx=5, pady=5)
     
-    def reconnect(self, arg, State):
-        checkState = str(State)
-        if checkState!="CONNECTED":
+    def reconnect(self, arg):
+        speedify.disconnect()
+        arg['image']= imgoff
+        speedify.connect_closest()
+        arg['image']= imgon
+        self.destroy()
 
-            speedify.connect_closest()
-            arg['image']= imgon
-        else:
-            speedify.disconnect()
-            arg['image']= imgoff
-        self.destroy
+    def disconnect(self, arg):
+        speedify.disconnect()
+        arg['image']= imgoff
+        self.destroy()
+
+    def resetwifi(self):
+        os.system('sudo ip link set wlan1 down')
+        os.system('sudo ip link set wlan1 up')
+        self.destroy()
 
 
 class Mainframe(tk.Frame):
