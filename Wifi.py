@@ -11,5 +11,6 @@ while True:
         print(output)
         os.system('sudo ip link set wlan1 down')
         os.system('sudo ip link set wlan1 up')
+        time.sleep(30)
     except subprocess.CalledProcessError:
-    time.sleep(30)
+        time.sleep(10)
