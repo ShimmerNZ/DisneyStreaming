@@ -7,7 +7,7 @@ After=network-online.target
 Type=simple
 User=pi
 WorkingDirectory=/home/pi/DisneyStreaming
-ExecStart=/home/pi/DisneyStreaming/wifi.sh
+ExecStart=sudo /home/pi/DisneyStreaming/wifi.sh
 
 [Install]
 WantedBy=multi-user.target
