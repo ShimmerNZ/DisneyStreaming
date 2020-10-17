@@ -26,6 +26,8 @@
  To attach the dongles I created a custom back plate which I 3d printed. The STL files for that are included in the repo also.
 
 
+Install Process
+================
 Install fresh install of 32bit Raspberry pi Desktop OS with Desktop (built using Buster on a Raspi4b) - I used the Raspberry Pi Imager software to do this
 https://www.raspberrypi.org/downloads/
 or for just the iso image
@@ -41,8 +43,9 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
 
 
 #install Speedify
- wget -q0- https://get.speedify.com | sudo -E bash -
- sudo nano /etc/speedify/speedify.com
+ wget -qO- https://get.speedify.com | sudo -E bash -
+ sudo apt-get install speedifyui
+ sudo nano /etc/speedify/speedify.conf
  
  #ADD/ENABLE THE FOLLOWING TEXT
  ENABLE_SHARE=1
@@ -56,9 +59,22 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  /usr/share/speedify/speedify_cli startupconnect on
 
 #install USB Wifi dongle driver - in my case the ASUS AC56 device
+ sudo apt-get install bc raspberrypi-kernel-headers
+ git clone -b v5.7.0 https://github.com/aircrack-ng/rtl8812au.git
+ cd rtl*
+ sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
+ sed -i 's/CONFIG_PLATFORM_ARM64_RPI = n/CONFIG_PLATFORM_ARM64_RPI = y/g' Makefile
+ sed -i 's/^dkms build/ARCH=arm dkms build/' dkms-install.sh
+ sed -i 's/^MAKE="/MAKE="ARCH=arm\ /' dkms.conf
+ sudo ./dkms-install.sh
+ note to remove navigate to this directory and run sudo ./dkms-remove.sh
+
+
+#old method (ignore now, use above as more recent driver with many fixes)
  git clone https://github.com/zorani/USB-AC56-raspi
- cd to reepo
- run install.sh
+ cd to repo
+ sudo ./install.sh
+
 
 #Clone streaming repo and do the install
  git clone https://github.com/ShimmerNZ/DisneyStreaming
@@ -87,3 +103,9 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
 # Change launch to single click
 
 # Change file manager to not prompt when USB device is connected.
+
+# Speedify UI changes
+Set bonding mode to streaming
+Set Disconnect on Exit to Off
+Transport mode UDP
+Fastest Server
