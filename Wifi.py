@@ -19,3 +19,4 @@ while True:
             print("network ok")
     except subprocess.CalledProcessError:
         time.sleep(30)
+        print("network ok")
