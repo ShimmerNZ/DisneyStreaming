@@ -31,7 +31,7 @@ try:
     from secrets import secrets
     #print(secrets)
 except ImportError:
-    print('failed to read secrets file containing Youtube API key')
+    print('failed to read secrets file containing Youtube API key', flush=True)
     raise
 
 #CPU Temp Section
@@ -336,14 +336,14 @@ class Mainframe(tk.Frame):
                 views=json.loads(data)["items"][0]["statistics"]["viewCount"]
                 videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
                 self.Currentsubs.set(str("Subscriber Count: "+subs+ "       View Count: "+views+"       Video Count: "+ videos))
-                print(self.Subscount)
+                print(self.Subscount, flush=True)
             except urllib.error.URLError as e:
-                print("Some error occured getting Youtube API data, retrying! -", e)
+                print("Some error occured getting Youtube API data, retrying! -", e, flush=True)
         self.after(self.TimerInterval4,self.GetSubscription)
 
            
     def Special(self):
-        print('reserved for later use')        
+        print('reserved for later use', flush=True)        
 
     def GetSpeed(self):
         # throw in the connectify interface throughput stats
@@ -357,7 +357,7 @@ class Mainframe(tk.Frame):
                      tx= int(data)
                  except:
                      tx=0
-                     print('exception handled gracefully')
+                     print('exception handled gracefully', flush=True)
         else:
             tx=0
         if os.path.exists('/sys/class/net/connectify0/statistics/rx_bytes'):
