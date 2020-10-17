@@ -83,6 +83,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  chmod +x update.sh
  cp /home/pi/DisneyStreaming/update.sh /home/pi/update.sh
  run update .sh
+ mkdir /home/pi/logs
  
 #Install some Python library dependancies
  sudo apt-get install python3-pil python3-pil.imagetk
