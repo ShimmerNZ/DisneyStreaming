@@ -78,13 +78,13 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
 
 #Clone streaming repo and do the install
  git clone https://github.com/ShimmerNZ/DisneyStreaming
+ cd DisneyStreaming
  chmod +x update.sh
+ cp /home/pi/DisneyStreaming/update.sh /home/pi/update.sh
  run update .sh
  
- cp /home/pi/DisneyStreaming/update.sh /home/pi/update.sh
- 
 #Install some Python library dependancies
- sudo apt-get intall python3-pil
+ sudo apt-get install python3-pil
  
 #install official raspberry pi 7"inch touchscreen"
 
@@ -101,8 +101,11 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
 # Install software keyboard
 
 # Change launch to single click
+Open File Manager --> Edit --> Preferences --> General  --> tick "Open files with single click"
 
-# Change file manager to not prompt when USB device is connected.
+# Change file manager to not prompt when USB device is connected and not prompt to execute
+Open File Manager --> Edit --> Preferences --> General  --> tick "Don't ask options on launch executeabe file"
+Open File Manager --> Edit --> Preferences --> Volume Management  --> untick "Show availabkle options for removeable media when they are inserted"
 
 # Speedify UI changes
 Set bonding mode to streaming
