@@ -59,6 +59,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  /usr/share/speedify/speedify_cli startupconnect on
 
 #install USB Wifi dongle driver - in my case the ASUS AC56 device
+ cd /home/pi
  sudo apt-get install bc raspberrypi-kernel-headers
  git clone -b v5.7.0 https://github.com/aircrack-ng/rtl8812au.git
  cd rtl*
@@ -84,13 +85,16 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  run update .sh
  
 #Install some Python library dependancies
- sudo apt-get install python3-pil
+ sudo apt-get install python3-pil python3-pil.imagetk
  
 #install official raspberry pi 7"inch touchscreen"
 
 # modify boot process to remove the raspbery pi stuff                                                                              
  sudo nano /boot/cmdline.txt
- console=tty1 root=PARTUUID=f19d29ed-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles logo.nologo vt.global_cursor_default=0
+ # append the following to the end
+ logo.nologo vt.global_cursor_default=0
+
+
 
 # I had problems with wlan1 intermittently returning a NO CARRIER error and it would not connect again until reboot, dhcpcd service restart or wlan1 link brought down and up again. I created a simple python script that runs as as service that checks and if wrong it fixes it
  sudo systemctl edit --force --full wificheck.service
