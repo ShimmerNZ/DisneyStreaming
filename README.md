@@ -85,6 +85,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  run update .sh
  mkdir /home/pi/logs
  mkdir /home/pi/.config/autostart
+ pcmanfm --set-wallpaper /home/pi/DisneyStreaming/desktop.png
 
 # Install software keyboard
 sudo apt-get install matchbox-keyboard
