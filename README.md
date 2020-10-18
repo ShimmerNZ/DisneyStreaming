@@ -58,7 +58,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  sudo apt install usbmuxd
  /usr/share/speedify/speedify_cli startupconnect on
 
-# install USB Wifi dongle driver - in my case the ASUS AC56 device  
+# Install USB Wifi driver - only for AC56 device  
  cd /home/pi
  sudo apt-get install bc raspberrypi-kernel-headers
  git clone -b v5.7.0 https://github.com/aircrack-ng/rtl8812au.git
@@ -71,10 +71,10 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  note to remove navigate to this directory and run sudo ./dkms-remove.sh
 
 
-# old method (ignore now, use above as more recent driver with many fixes)  
+# ~~Old method (ignore now, use above as more recent driver with many fixes)  
  git clone https://github.com/zorani/USB-AC56-raspi
  cd to repo
- sudo ./install.sh
+ sudo ./install.sh~~
 
 
 # Clone streaming repo and do the install  
