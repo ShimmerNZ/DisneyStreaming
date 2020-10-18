@@ -34,11 +34,11 @@ or for just the iso image
 https://www.raspberrypi.org/downloads/raspberry-pi-os/  
 
 ##Power up Device, setup wifi and update it
- * Setup location/password/wifi through desktop UI wizard
+ Setup location/password/wifi through desktop UI wizard
  ```
  sudo raspi-config and enable SSH
  ```
- #if manually updating then
+ ### if manually updating then
  ```
  sudo apt-get update
  sudo apt-get upgrade
@@ -63,7 +63,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  sudo service speedify-sharing restart
  ```
 
-# Add iPhone tether support and enable auto start for speedify 
+# Add iPhone support & Autostart
  ```
  sudo apt install usbmuxd
  /usr/share/speedify/speedify_cli startupconnect on
@@ -103,7 +103,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  sudo apt-get install python3-pil python3-pil.imagetk
  ```
 
-### install official raspberry pi 7"inch touchscreen"  
+## Install official raspberry pi 7"inch touchscreen"  
  ```
  sudo nano /boot/config.txt
  ```
@@ -141,9 +141,3 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
 * Set Disconnect on Exit to Off  
 * Transport mode UDP  
 * Fastest Server  
-
-`<addr>` test `<addr>`  
-`<addr>` test this is it `<addr>`  
-<addr> no quote marks <addr>  
-<addr> with close out </addr>  
-new line of text

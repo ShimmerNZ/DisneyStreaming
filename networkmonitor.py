@@ -126,8 +126,8 @@ class Mainframe(tk.Frame):
         tk.Label(self,textvariable=self.Connectionstate,bg='#0b0c1b',fg='#fff',font=("HCo Gotham SSm",14)).grid(row=5, column=3, columnspan=6)
 
         #download stats
-        img=tk.PhotoImage(file='/home/pi/DisneyStreaming/down.gif')
-        img2=tk.PhotoImage(file='/home/pi/DisneyStreaming/up.gif')
+        img=tk.PhotoImage(file='/home/pi/DisneyStreaming/images/down.gif')
+        img2=tk.PhotoImage(file='/home/pi/DisneyStreaming/images/up.gif')
         lbl=tk.Label(self, image=img, bg='#0b0c1b')
         lbl.image = img
         lbl.grid(row=1, column=3)
@@ -166,7 +166,7 @@ class Mainframe(tk.Frame):
         tk.Label(self,textvariable=self.Currentsubs, bg='#0b0c1b',fg='LightSkyBlue2', font=("HCo Gotham SSm",12,"italic")).grid(row=23, column=3, columnspan=6, rowspan=1, sticky='S')
 
         #Exit and Connect Buttons
-        img4=Image.open('/home/pi/DisneyStreaming/exit.png').resize((40,40))
+        img4=Image.open('/home/pi/DisneyStreaming/images/exit.png').resize((40,40))
         img4=ImageTk.PhotoImage(img4)
         lbl1=tk.Button(self, image=img4, command=lambda: PopUpConfirmQuit(self), borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl1.image=img4
@@ -174,9 +174,9 @@ class Mainframe(tk.Frame):
 
         global imgon
         global imgoff
-        img5=Image.open('/home/pi/DisneyStreaming/on.png')
+        img5=Image.open('/home/pi/DisneyStreaming/images/on.png')
         imgon=ImageTk.PhotoImage(img5)
-        img6=Image.open('/home/pi/DisneyStreaming/off.png')
+        img6=Image.open('/home/pi/DisneyStreaming/images/off.png')
         imgoff=ImageTk.PhotoImage(img6)
         lbl2=tk.Button(self, image=imgon, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         #lbl2['command']= lambda arg=lbl2:self.connect(arg)
@@ -198,7 +198,7 @@ class Mainframe(tk.Frame):
         progress2.config(mode='determinate')
 
         #slap in a logo here
-        img3=Image.open('/home/pi/DisneyStreaming/Brianlogo.png').resize((70,70))
+        img3=Image.open('/home/pi/DisneyStreaming/images/Brianlogo.png').resize((70,70))
         img3=ImageTk.PhotoImage(img3)
         lbl=tk.Button(self, image=img3, command=self.Special, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl.image = img3
