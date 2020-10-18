@@ -70,13 +70,6 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  sudo ./dkms-install.sh
  note to remove navigate to this directory and run sudo ./dkms-remove.sh
 
-
-# ~~Old method (ignore now, use above as more recent driver with many fixes)  
- git clone https://github.com/zorani/USB-AC56-raspi
- cd to repo
- sudo ./install.sh~~
-
-
 # Clone streaming repo and do the install  
  git clone https://github.com/ShimmerNZ/DisneyStreaming
  cd DisneyStreaming
@@ -120,3 +113,9 @@ lcd_rotate=2
 * Set Disconnect on Exit to Off  
 * Transport mode UDP  
 * Fastest Server  
+
+`<addr>` test `<addr>`  
+`<addr>` test this is it `<addr>`  
+<addr> no quote marks <addr>  
+<addr> with close out </addr>  
+new line of text
