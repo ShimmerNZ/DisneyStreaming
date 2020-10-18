@@ -100,12 +100,11 @@ sudo apt-get install matchbox-keyboard
  logo.nologo vt.global_cursor_default=0
 
 
-
 # I had problems with wlan1 intermittently returning a NO CARRIER error and it would not connect again until reboot, dhcpcd service restart or wlan1 link brought down and up again. I created a simple python script that runs as as service that checks and if wrong it fixes it
  sudo systemctl edit --force --full wificheck.service
  copy contents from wificheck.service to this file save and exit
  systemctl enable wificheck.service
- sudo systemctl stabrianandamandart wificheck.service
+ sudo systemctl start wificheck.service
 
 # Change launch to single click
 Open File Manager --> Edit --> Preferences --> General  --> tick "Open files with single click"
