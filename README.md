@@ -74,6 +74,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  ```
  cd /home/pi
  sudo apt-get install bc raspberrypi-kernel-headers
+ sudo apt-get install dkms
  git clone -b v5.7.0 https://github.com/aircrack-ng/rtl8812au.git
  cd rtl*
  sed -i 's/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g' Makefile
@@ -96,12 +97,9 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  pcmanfm --set-wallpaper /home/pi/DisneyStreaming/images/desktop.png
 
  sudo cp /home/pi/DisneyStreaming/images/splash.png /usr/share/plymouth/themes/pix/splash.png  
- sudo nano /etc/plymouth/plymouth.conf
  ```
- uncomment ShowDelay and set to 5
- ```
- ShowDelay=5
- ```
+ 
+ 
 ## Install software keyboard  
  ```
  sudo apt-get install matchbox-keyboard
@@ -119,7 +117,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  ```
  disable_splash=1
  lcd_rotate=2
-
+ max_usb_current=1
  ```
 
 ## modify boot process to remove the raspbery pi stuff                                                                                
@@ -128,7 +126,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  ```
  append the following to the end  
  ```
- silent quiet splash loglevel=0 logo.nologo
+ quiet splash loglevel=0 logo.nologo
  ```
 
 ## AC56 Wifi fix  
@@ -142,7 +140,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  ```
  fix power saving
  ```
- sudo nano /etc/rc.local
+ sudo nano /etc/rc.localsudo
  ```
  add the following before exit 0
  ```
