@@ -118,7 +118,7 @@ Open File Manager --> Edit --> Preferences --> General  --> tick "Don't ask opti
 Open File Manager --> Edit --> Preferences --> Volume Management  --> untick "Show availabkle options for removeable media when they are inserted"
 
 # Speedify UI changes
-Set bonding mode to streaming
-Set Disconnect on Exit to Off
-Transport mode UDP
-Fastest Server
+>Set bonding mode to streaming
+>Set Disconnect on Exit to Off
+>Transport mode UDP
+>Fastest Server
