@@ -35,30 +35,42 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
 
 ##Power up Device, setup wifi and update it
  * Setup location/password/wifi through desktop UI wizard
+ ```
  sudo raspi-config and enable SSH
+ ```
  #if manually updating then
+ ```
  sudo apt-get update
  sudo apt-get upgrade
  restart
-
+ ```
 
 # Install Speedify  
+ ```
  wget -qO- https://get.speedify.com | sudo -E bash -
  sudo apt-get install speedifyui
  sudo nano /etc/speedify/speedify.conf
- 
+ ```
+
  ### Add/Enable the following
+ ```
  ENABLE_SHARE=1  
  SHARE_INTERFACE="eth0"  
+ ```
 
  ### SAVE AND EXIT  
+ ```
  sudo service speedify-sharing restart
+ ```
 
 # Add iPhone tether support and enable auto start for speedify 
+ ```
  sudo apt install usbmuxd
  /usr/share/speedify/speedify_cli startupconnect on
+ ```
 
 # Install USB Wifi driver - only for AC56 device  
+ ```
  cd /home/pi
  sudo apt-get install bc raspberrypi-kernel-headers
  git clone -b v5.7.0 https://github.com/aircrack-ng/rtl8812au.git
@@ -68,9 +80,11 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  sed -i 's/^dkms build/ARCH=arm dkms build/' dkms-install.sh
  sed -i 's/^MAKE="/MAKE="ARCH=arm\ /' dkms.conf
  sudo ./dkms-install.sh
+ ```
  note to remove navigate to this directory and run sudo ./dkms-remove.sh
 
 # Clone streaming repo and do the install  
+ ``` 
  git clone https://github.com/ShimmerNZ/DisneyStreaming
  cd DisneyStreaming
  chmod +x update.sh
@@ -79,23 +93,33 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  mkdir /home/pi/logs
  mkdir /home/pi/.config/autostart
  pcmanfm --set-wallpaper /home/pi/DisneyStreaming/desktop.png
-
+ ```
 # Install software keyboard  
+ ```
  sudo apt-get install matchbox-keyboard
- 
+ ``` 
 # Install some Python library dependancies  
+ ``` 
  sudo apt-get install python3-pil python3-pil.imagetk
- 
+ ```
+
 ### install official raspberry pi 7"inch touchscreen"  
-sudo nano /boot/config.txt
+ ```
+ sudo nano /boot/config.txt
+ ```
 ### add the following at the bottom  
-lcd_rotate=2
+ ```
+ lcd_rotate=2
+ ```
 
 # modify boot process to remove the raspbery pi stuff                                                                                
+ ```
  sudo nano /boot/cmdline.txt
+ ```
  ### append the following to the end  
+ ```
  logo.nologo vt.global_cursor_default=0
-
+ ```
 
 # AC56 Wifi fix  
  ```
