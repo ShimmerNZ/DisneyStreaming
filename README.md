@@ -42,16 +42,16 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  restart
 
 
-# install Speedify  
+# Install Speedify  
  wget -qO- https://get.speedify.com | sudo -E bash -
  sudo apt-get install speedifyui
  sudo nano /etc/speedify/speedify.conf
  
- # ADD/ENABLE THE FOLLOWING TEXT  
+ ### Add/Enable the following
  ENABLE_SHARE=1  
  SHARE_INTERFACE="eth0"  
 
- #SAVE AND EXIT  
+ ### SAVE AND EXIT  
  sudo service speedify-sharing restart
 
 # Add iPhone tether support and enable auto start for speedify 
@@ -93,14 +93,14 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
 # Install some Python library dependancies  
  sudo apt-get install python3-pil python3-pil.imagetk
  
-# install official raspberry pi 7"inch touchscreen"  
+### install official raspberry pi 7"inch touchscreen"  
 sudo nano /boot/config.txt
-## add the following at the bottom  
+### add the following at the bottom  
 lcd_rotate=2
 
 # modify boot process to remove the raspbery pi stuff                                                                                
  sudo nano /boot/cmdline.txt
- # append the following to the end  
+ ### append the following to the end  
  logo.nologo vt.global_cursor_default=0
 
 
