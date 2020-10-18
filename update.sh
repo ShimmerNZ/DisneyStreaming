@@ -1,5 +1,8 @@
 #!/bin/bash
 cd /home/pi/DisneyStreaming/
+rm wifi.sh
+rm stream.sh
+rm update.sh
 git pull origin master
 sudo cp /home/pi/DisneyStreaming/Update.txt /home/pi/Desktop/Update.desktop
 sudo cp /home/pi/DisneyStreaming/Stream.txt /home/pi/Desktop/Stream.desktop
