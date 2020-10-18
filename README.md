@@ -33,7 +33,7 @@ https://www.raspberrypi.org/downloads/
 or for just the iso image
 https://www.raspberrypi.org/downloads/raspberry-pi-os/
 
-#Power up Device, setup wifi and update it
+##Power up Device, setup wifi and update it
  Setup location/password/wifi through desktop UI wizard
  sudo raspi-config and enable SSH
  #if manually updating then
