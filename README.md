@@ -41,7 +41,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  ```
  sudo raspi-config and enable SSH
  ```
- ### if manually updating then
+ ### Alternative manual method
  ```
  sudo apt-get update
  sudo apt-get upgrade
@@ -93,7 +93,9 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  run update .sh
  mkdir /home/pi/logs
  mkdir /home/pi/.config/autostart
- pcmanfm --set-wallpaper /home/pi/DisneyStreaming/desktop.png
+ pcmanfm --set-wallpaper /home/pi/DisneyStreaming/images/desktop.png
+
+ sudo cp /home/pi/DisneyStreaming/images/splash.png /usr/share/plymouth/themes/pix/splash.png
  ```
 ## Install software keyboard  
  ```
@@ -108,9 +110,11 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  ```
  sudo nano /boot/config.txt
  ```
-### add the following at the bottom  
+ add the following at the bottom  
  ```
- lcd_rotate=2
+ disable_splash=1
+ dtoverlay=rpi-ft5406,touchscreen-inverted-x=1,touchscreen-inverted-y=1
+
  ```
 
 ## modify boot process to remove the raspbery pi stuff                                                                                
@@ -119,7 +123,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  ```
  append the following to the end  
  ```
- logo.nologo vt.global_cursor_default=0
+ logo.nologo vt.global_cursor_default=0 video=DSI-1:800x480@60
  ```
 
 ## AC56 Wifi fix  
@@ -130,6 +134,14 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  ``` 
  systemctl enable wificheck.service
  sudo systemctl start wificheck.service
+ ```
+ fix power saving
+ ```
+ sudo nano /etc/rc.local
+ ```
+ add the following before exit 0
+ ```
+ /sbin/iw dev wlan1 set power_save off
  ```
 
 ## File Manager changes 
