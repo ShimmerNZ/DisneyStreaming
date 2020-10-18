@@ -84,6 +84,10 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  cp /home/pi/DisneyStreaming/update.sh /home/pi/update.sh
  run update .sh
  mkdir /home/pi/logs
+ mkdir /home/pi/.config/autostart
+
+# Install software keyboard
+sudo apt-get install matchbox-keyboard
  
 #Install some Python library dependancies
  sudo apt-get install python3-pil python3-pil.imagetk
@@ -102,8 +106,6 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  copy contents from wificheck.service to this file save and exit
  systemctl enable wificheck.service
  sudo systemctl stabrianandamandart wificheck.service
-
-# Install software keyboard
 
 # Change launch to single click
 Open File Manager --> Edit --> Preferences --> General  --> tick "Open files with single click"

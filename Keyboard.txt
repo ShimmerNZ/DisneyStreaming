@@ -4,6 +4,4 @@ Comment=Displays Keyboard
 Icon=/usr/share/pixmaps/matchbox-keyboard.png
 Exec=/home/pi/DisneyStreaming/keyboard.sh
 Type=Application
-Encoding=UTF-8
-Terminal=true
 StartupNotify=false
