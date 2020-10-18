@@ -98,10 +98,14 @@ lcd_rotate=2
 
 
 # AC56 Wifi fix  
- ``` sudo systemctl edit --force --full wificheck.service ```
+ ```
+ sudo systemctl edit --force --full wificheck.service 
+ ```
  copy contents from wificheck.service to this file save and exit
- ``` systemctl enable wificheck.service
- sudo systemctl start wificheck.service ```
+ ``` 
+ systemctl enable wificheck.service
+ sudo systemctl start wificheck.service
+ ```
 
 # File Manager changes 
 * Open File Manager --> Edit --> Preferences --> General  --> tick "Open files with single click"  
