@@ -2,6 +2,6 @@
 Name=Keyboard
 Comment=Displays Keyboard
 Icon=/usr/share/pixmaps/matchbox-keyboard.png
-Exec=/home/pi/DisneyStreaming/keyboard.sh
+Exec=/home/pi/keyboard.sh
 Type=Application
 StartupNotify=false

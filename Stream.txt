@@ -2,6 +2,6 @@
 Name=Disney Streaming App
 Comment=Launches GUI
 Icon=/home/pi/DisneyStreaming/images/Brianlogo-trans.png
-Path=/home/pi/DisneyStreaming
-Exec=/home/pi/DisneyStreaming/stream.sh
+Path=/home/pi/
+Exec=/home/pi/stream.sh
 Type=Application
