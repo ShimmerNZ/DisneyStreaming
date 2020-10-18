@@ -15,6 +15,9 @@
 
  Note: As of 18th Oct 2020 this has not yet been tested in the wild to determine if this is going to work as expected.
 
+ ![Front](/images/screen.jpg)
+ ![Back view](/images/backview.jpg)
+
  Parts List
  ===========
  * Raspberry Pi4b - 2GB is fine
