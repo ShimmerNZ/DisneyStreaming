@@ -95,7 +95,12 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  mkdir /home/pi/.config/autostart
  pcmanfm --set-wallpaper /home/pi/DisneyStreaming/images/desktop.png
 
- sudo cp /home/pi/DisneyStreaming/images/splash.png /usr/share/plymouth/themes/pix/splash.png
+ sudo cp /home/pi/DisneyStreaming/images/splash.png /usr/share/plymouth/themes/pix/splash.png  
+ sudo nano /etc/plymouth/plymouth.conf
+ ```
+ uncomment ShowDelay and set to 5
+ ```
+ ShowDelay=5
  ```
 ## Install software keyboard  
  ```
@@ -113,7 +118,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  add the following at the bottom  
  ```
  disable_splash=1
- dtoverlay=rpi-ft5406,touchscreen-inverted-x=1,touchscreen-inverted-y=1
+ lcd_rotate=2
 
  ```
 
@@ -123,7 +128,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  ```
  append the following to the end  
  ```
- logo.nologo vt.global_cursor_default=0 video=DSI-1:800x480@60
+ silent quiet splash loglevel=0 logo.nologo
  ```
 
 ## AC56 Wifi fix  
