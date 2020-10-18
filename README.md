@@ -54,14 +54,12 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  sudo apt-get install speedifyui
  sudo nano /etc/speedify/speedify.conf
  ```
-
- ### Add/Enable the following
+ Add/Enable the following
  ```
  ENABLE_SHARE=1  
  SHARE_INTERFACE="eth0"  
  ```
-
- ### SAVE AND EXIT  
+ Save and Exit 
  ```
  sudo service speedify-sharing restart
  ```
@@ -119,7 +117,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  ```
  sudo nano /boot/cmdline.txt
  ```
- ### append the following to the end  
+ append the following to the end  
  ```
  logo.nologo vt.global_cursor_default=0
  ```
