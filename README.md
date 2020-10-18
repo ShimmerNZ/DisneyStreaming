@@ -36,7 +36,7 @@ https://www.raspberrypi.org/downloads/
 or for just the iso image  
 https://www.raspberrypi.org/downloads/raspberry-pi-os/  
 
-##Power up Device, setup wifi and update it
+## Power up Device, setup wifi and update it
  Setup location/password/wifi through desktop UI wizard
  ```
  sudo raspi-config and enable SSH
@@ -48,7 +48,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  restart
  ```
 
-# Install Speedify  
+## Install Speedify  
  ```
  wget -qO- https://get.speedify.com | sudo -E bash -
  sudo apt-get install speedifyui
@@ -66,13 +66,13 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  sudo service speedify-sharing restart
  ```
 
-# Add iPhone support & Autostart
+## Add iPhone support & Autostart
  ```
  sudo apt install usbmuxd
  /usr/share/speedify/speedify_cli startupconnect on
  ```
 
-# Install USB Wifi driver - only for AC56 device  
+## Install USB Wifi driver - only for AC56 device  
  ```
  cd /home/pi
  sudo apt-get install bc raspberrypi-kernel-headers
@@ -86,7 +86,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  ```
  note to remove navigate to this directory and run sudo ./dkms-remove.sh
 
-# Clone streaming repo and do the install  
+## Clone streaming repo and do the install  
  ``` 
  git clone https://github.com/ShimmerNZ/DisneyStreaming
  cd DisneyStreaming
@@ -97,11 +97,11 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  mkdir /home/pi/.config/autostart
  pcmanfm --set-wallpaper /home/pi/DisneyStreaming/desktop.png
  ```
-# Install software keyboard  
+## Install software keyboard  
  ```
  sudo apt-get install matchbox-keyboard
  ``` 
-# Install some Python library dependancies  
+## Install some Python library dependancies  
  ``` 
  sudo apt-get install python3-pil python3-pil.imagetk
  ```
@@ -115,7 +115,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  lcd_rotate=2
  ```
 
-# modify boot process to remove the raspbery pi stuff                                                                                
+## modify boot process to remove the raspbery pi stuff                                                                                
  ```
  sudo nano /boot/cmdline.txt
  ```
@@ -124,7 +124,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  logo.nologo vt.global_cursor_default=0
  ```
 
-# AC56 Wifi fix  
+## AC56 Wifi fix  
  ```
  sudo systemctl edit --force --full wificheck.service 
  ```
@@ -134,13 +134,13 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  sudo systemctl start wificheck.service
  ```
 
-# File Manager changes 
-* Open File Manager --> Edit --> Preferences --> General  --> tick "Open files with single click"  
-* Open File Manager --> Edit --> Preferences --> General  --> tick "Don't ask options on launch executeabe file"  
-* Open File Manager --> Edit --> Preferences --> Volume Management  --> untick "Show availabkle options for removeable media when they are inserted"  
+## File Manager changes 
+ * Open File Manager --> Edit --> Preferences --> General  --> tick "Open files with single click"  
+ * Open File Manager --> Edit --> Preferences --> General  --> tick "Don't ask options on launch executeabe file"  
+ * Open File Manager --> Edit --> Preferences --> Volume Management  --> untick "Show availabkle options for removeable media when they are inserted"  
 
-# Speedify UI changes
-* Set bonding mode to streaming  
-* Set Disconnect on Exit to Off  
-* Transport mode UDP  
-* Fastest Server  
+## Speedify UI changes
+ * Set bonding mode to streaming  
+ * Set Disconnect on Exit to Off  
+ * Transport mode UDP  
+ * Fastest Server  
