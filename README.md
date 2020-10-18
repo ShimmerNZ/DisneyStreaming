@@ -119,9 +119,6 @@ Open File Manager --> Edit --> Preferences --> Volume Management  --> untick "Sh
 
 # Speedify UI changes
 Set bonding mode to streaming
-
 Set Disconnect on Exit to Off
-
 Transport mode UDP
-
 Fastest Server
