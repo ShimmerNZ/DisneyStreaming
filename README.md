@@ -28,10 +28,10 @@
 
 Install Process
 ================
-Install fresh install of 32bit Raspberry pi Desktop OS with Desktop (built using Buster on a Raspi4b) - I used the Raspberry Pi Imager software to do this
-https://www.raspberrypi.org/downloads/
-or for just the iso image
-https://www.raspberrypi.org/downloads/raspberry-pi-os/
+Install fresh install of 32bit Raspberry pi Desktop OS with Desktop (built using Buster on a Raspi4b) - I used the Raspberry Pi Imager software to do this  
+https://www.raspberrypi.org/downloads/  
+or for just the iso image  
+https://www.raspberrypi.org/downloads/raspberry-pi-os/  
 
 ##Power up Device, setup wifi and update it
  Setup location/password/wifi through desktop UI wizard
@@ -42,23 +42,23 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  restart
 
 
-#install Speedify
+#install Speedify  
  wget -qO- https://get.speedify.com | sudo -E bash -
  sudo apt-get install speedifyui
  sudo nano /etc/speedify/speedify.conf
  
- #ADD/ENABLE THE FOLLOWING TEXT
- ENABLE_SHARE=1
- SHARE_INTERFACE="eth0"
+ #ADD/ENABLE THE FOLLOWING TEXT  
+ ENABLE_SHARE=1  
+ SHARE_INTERFACE="eth0"  
 
- #SAVE AND EXIT
+ #SAVE AND EXIT  
  sudo service speedify-sharing restart
 
-# Add iPhone tether support and enable auto start for speedify
+# Add iPhone tether support and enable auto start for speedify 
  sudo apt install usbmuxd
  /usr/share/speedify/speedify_cli startupconnect on
 
-#install USB Wifi dongle driver - in my case the ASUS AC56 device
+#install USB Wifi dongle driver - in my case the ASUS AC56 device  
  cd /home/pi
  sudo apt-get install bc raspberrypi-kernel-headers
  git clone -b v5.7.0 https://github.com/aircrack-ng/rtl8812au.git
@@ -71,13 +71,13 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  note to remove navigate to this directory and run sudo ./dkms-remove.sh
 
 
-#old method (ignore now, use above as more recent driver with many fixes)
+#old method (ignore now, use above as more recent driver with many fixes)  
  git clone https://github.com/zorani/USB-AC56-raspi
  cd to repo
  sudo ./install.sh
 
 
-#Clone streaming repo and do the install
+#Clone streaming repo and do the install  
  git clone https://github.com/ShimmerNZ/DisneyStreaming
  cd DisneyStreaming
  chmod +x update.sh
@@ -87,35 +87,35 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  mkdir /home/pi/.config/autostart
  pcmanfm --set-wallpaper /home/pi/DisneyStreaming/desktop.png
 
-# Install software keyboard
-sudo apt-get install matchbox-keyboard
+# Install software keyboard  
+ sudo apt-get install matchbox-keyboard
  
-#Install some Python library dependancies
+#Install some Python library dependancies  
  sudo apt-get install python3-pil python3-pil.imagetk
  
-#install official raspberry pi 7"inch touchscreen"
+#install official raspberry pi 7"inch touchscreen"  
 sudo nano /boot/config.txt
-##add the following at the bottom
+##add the following at the bottom  
 lcd_rotate=2
 
-# modify boot process to remove the raspbery pi stuff                                                                              
+# modify boot process to remove the raspbery pi stuff                                                                                
  sudo nano /boot/cmdline.txt
- # append the following to the end
+ # append the following to the end  
  logo.nologo vt.global_cursor_default=0
 
 
-# I had problems with wlan1 intermittently returning a NO CARRIER error and it would not connect again until reboot, dhcpcd service restart or wlan1 link brought down and up again. I created a simple python script that runs as as service that checks and if wrong it fixes it
+# I had problems with wlan1 intermittently returning a NO CARRIER error and it would not connect again until reboot, dhcpcd service restart or wlan1 link brought down and up again. I created a simple python script that runs as as service that checks and if wrong it fixes it  
  sudo systemctl edit --force --full wificheck.service
  copy contents from wificheck.service to this file save and exit
  systemctl enable wificheck.service
  sudo systemctl start wificheck.service
 
-# Change launch to single click
-Open File Manager --> Edit --> Preferences --> General  --> tick "Open files with single click"
+# Change launch to single click  
+Open File Manager --> Edit --> Preferences --> General  --> tick "Open files with single click"  
 
-# Change file manager to not prompt when USB device is connected and not prompt to execute
-Open File Manager --> Edit --> Preferences --> General  --> tick "Don't ask options on launch executeabe file"
-Open File Manager --> Edit --> Preferences --> Volume Management  --> untick "Show availabkle options for removeable media when they are inserted"
+# Change file manager to not prompt when USB device is connected and not prompt to execute  
+Open File Manager --> Edit --> Preferences --> General  --> tick "Don't ask options on launch executeabe file"  
+Open File Manager --> Edit --> Preferences --> Volume Management  --> untick "Show availabkle options for removeable media when they are inserted"  
 
 # Speedify UI changes
 Set bonding mode to streaming  
