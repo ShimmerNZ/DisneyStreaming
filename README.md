@@ -94,6 +94,9 @@ sudo apt-get install matchbox-keyboard
  sudo apt-get install python3-pil python3-pil.imagetk
  
 #install official raspberry pi 7"inch touchscreen"
+sudo nano /boot/config.txt
+##add the following at the bottom
+lcd_rotate=2
 
 # modify boot process to remove the raspbery pi stuff                                                                              
  sudo nano /boot/cmdline.txt
