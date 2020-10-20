@@ -276,7 +276,7 @@ class Mainframe(tk.Frame):
         self.Adapter3=''
         self.Adapter4=''
         adapters=speedify.show_adapters() 
-
+        print(adapters)
         for entry in adapters:
             if entry['state']=='connected':
                 if entry['type']=='Ethernet':
