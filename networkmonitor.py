@@ -128,16 +128,16 @@ class Mainframe(tk.Frame):
         #download stats
         img=tk.PhotoImage(file='/home/pi/DisneyStreaming/images/down.gif')
         img2=tk.PhotoImage(file='/home/pi/DisneyStreaming/images/up.gif')
-        lbl=tk.Label(self, image=img, bg='#0b0c1b')
-        lbl.image = img
-        lbl.grid(row=1, column=3)
         lbl=tk.Label(self, image=img2, bg='#0b0c1b')
         lbl.image = img2
-        lbl.grid(row=1, column=5, sticky='E')
+        lbl.grid(row=1, column=3)
+        lbl=tk.Label(self, image=img, bg='#0b0c1b')
+        lbl.image = img
+        lbl.grid(row=1, column=6, sticky='E')
 
         tk.Label(self,text='UPLOAD ',bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",16)).grid(row=1, column=4)
         tk.Label(self,text='Mbps', bg='#0b0c1b',fg='#9193a8', font=("HCo Gotham SSm",16)).grid(row=1, column=5, sticky='W')
-        tk.Label(self,text='DOWNLOAD ', bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",16)).grid(row=1, column=6, sticky='W')
+        tk.Label(self,text='DOWNLOAD ', bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",16)).grid(row=1, column=6, columnspan=2)
         tk.Label(self,text='Mbps', bg='#0b0c1b',fg='#9193a8', font=("HCo Gotham SSm",16)).grid(row=1, column=7, columnspan=2, sticky='W')
 
         self.TXspeed = tk.StringVar()
