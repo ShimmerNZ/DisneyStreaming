@@ -129,21 +129,21 @@ class Mainframe(tk.Frame):
         img=tk.PhotoImage(file='/home/pi/DisneyStreaming/images/down.gif')
         img2=tk.PhotoImage(file='/home/pi/DisneyStreaming/images/up.gif')
         lbl=tk.Label(self, image=img, bg='#0b0c1b')
-        lbl.image = img
+        lbl.image = img2
         lbl.grid(row=1, column=3)
         lbl=tk.Label(self, image=img2, bg='#0b0c1b')
-        lbl.image = img2
+        lbl.image = img
         lbl.grid(row=1, column=6, sticky='E')
 
-        tk.Label(self,text='DOWNLOAD ',bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",16)).grid(row=1, column=4)
+        tk.Label(self,text='UPLOAD ',bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",16)).grid(row=1, column=4)
         tk.Label(self,text='Mbps', bg='#0b0c1b',fg='#9193a8', font=("HCo Gotham SSm",16)).grid(row=1, column=5, sticky='W')
-        tk.Label(self,text='UPLOAD ', bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",16)).grid(row=1, column=7, sticky='W')
+        tk.Label(self,text='DOWNLOAD ', bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",16)).grid(row=1, column=7, sticky='W')
         tk.Label(self,text='Mbps', bg='#0b0c1b',fg='#9193a8', font=("HCo Gotham SSm",16)).grid(row=1, column=7, columnspan=2)
 
         self.TXspeed = tk.StringVar()
-        tk.Label(self,textvariable=self.TXspeed , bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",40)).grid(row=2, column=6, rowspan=2, columnspan=3)
+        tk.Label(self,textvariable=self.TXspeed , bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",40)).grid(row=2, column=3, rowspan=2, columnspan=3)
         self.RXspeed = tk.StringVar()
-        tk.Label(self,textvariable=self.RXspeed , bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",40)).grid(row=2, column=3, rowspan=2, columnspan=3)
+        tk.Label(self,textvariable=self.RXspeed , bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",40)).grid(row=2, column=6, rowspan=2, columnspan=3)
 
         #Adapter Stats
         tk.Label(self,text='CONNECTION TYPE  ', bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10)).grid(row=7, column=4)
@@ -276,7 +276,7 @@ class Mainframe(tk.Frame):
         self.Adapter3=''
         self.Adapter4=''
         adapters=speedify.show_adapters() 
-        print(adapters)
+        #print(adapters)
         for entry in adapters:
             if entry['state']=='connected':
                 if entry['type']=='Ethernet':
