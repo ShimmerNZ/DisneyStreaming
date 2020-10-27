@@ -170,7 +170,7 @@ class Mainframe(tk.Frame):
         img4=ImageTk.PhotoImage(img4)
         lbl1=tk.Button(self, image=img4, command=lambda: PopUpConfirmQuit(self), borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl1.image=img4
-        lbl1.grid(row=0, column=0, columnspan=3, rowspan=2)
+        lbl1.grid(row=0, column=0, columnspan=2, rowspan=3)
 
         global imgon
         global imgoff
