@@ -338,7 +338,7 @@ class Mainframe(tk.Frame):
                 views=json.loads(data)["items"][0]["statistics"]["viewCount"]
                 videos=json.loads(data)["items"][0]["statistics"]["videoCount"]
                 self.Currentsubs.set(str("Subscriber Count: "+subs+ "       View Count: "+views+"       Video Count: "+ videos))
-                print(self.Subscount, flush=True)
+                # print(self.Subscount, flush=True)
             except urllib.error.URLError as e:
                 print("Some error occured getting Youtube API data, retrying! -", e, flush=True)
         self.after(self.TimerInterval4,self.GetSubscription)
