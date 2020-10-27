@@ -130,7 +130,7 @@ class Mainframe(tk.Frame):
         img2=tk.PhotoImage(file='/home/pi/DisneyStreaming/images/up.gif')
         lbl=tk.Label(self, image=img2, bg='#0b0c1b')
         lbl.image = img2
-        lbl.grid(row=1, column=3, columnspan=2, sticky='W')
+        lbl.grid(row=1, column=3)
         lbl=tk.Label(self, image=img, bg='#0b0c1b')
         lbl.image = img
         lbl.grid(row=1, column=6)
@@ -181,7 +181,7 @@ class Mainframe(tk.Frame):
         lbl2=tk.Button(self, image=imgon, borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         #lbl2['command']= lambda arg=lbl2:self.connect(arg)
         lbl2['command']= lambda arg=lbl2:PopUpReconnect(arg)
-        lbl2.grid(row=0, column=8, columnspan=2, rowspan=2, sticky='E')
+        lbl2.grid(row=0, column=8, columnspan=2, rowspan=3, sticky='E')
 
         #Progress bar code 
         s=ttk.Style()
