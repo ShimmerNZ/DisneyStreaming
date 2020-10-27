@@ -133,7 +133,7 @@ class Mainframe(tk.Frame):
         lbl.grid(row=1, column=3)
         lbl=tk.Label(self, image=img, bg='#0b0c1b')
         lbl.image = img
-        lbl.grid(row=1, column=5, columnspan=2, sticky='E')
+        lbl.grid(row=1, column=5, columnspan=2)
 
         tk.Label(self,text='UPLOAD ',bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",16)).grid(row=1, column=4)
         tk.Label(self,text='Mbps', bg='#0b0c1b',fg='#9193a8', font=("HCo Gotham SSm",16)).grid(row=1, column=5, sticky='W')
