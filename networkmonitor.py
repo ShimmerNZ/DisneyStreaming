@@ -130,7 +130,7 @@ class Mainframe(tk.Frame):
         img2=tk.PhotoImage(file='/home/pi/DisneyStreaming/images/up.gif')
         lbl=tk.Label(self, image=img2, bg='#0b0c1b')
         lbl.image = img2
-        lbl.grid(row=1, column=3)
+        lbl.grid(row=1, column=2, columnspan=3)
         lbl=tk.Label(self, image=img, bg='#0b0c1b')
         lbl.image = img
         lbl.grid(row=1, column=6)
@@ -170,7 +170,7 @@ class Mainframe(tk.Frame):
         img4=ImageTk.PhotoImage(img4)
         lbl1=tk.Button(self, image=img4, command=lambda: PopUpConfirmQuit(self), borderwidth=0, highlightthickness=0, bg='#0b0c1b')
         lbl1.image=img4
-        lbl1.grid(row=0, column=0, columnspan=2, rowspan=3)
+        lbl1.grid(row=0, column=0, columnspan=2, rowspan=2)
 
         global imgon
         global imgoff
