@@ -15,5 +15,6 @@ sudo cp /home/pi/DisneyStreaming/keyboard.sh /home/pi/keyboard.sh
 sudo chmod +x /home/pi/stream.sh
 sudo chmod +x /home/pi/wifi.sh
 sudo chmod +x /home/pi/update.sh
+sudo chmod +x /home/pi/updatespeedify.sh
 sudo chmod +x /home/pi/keyboard.sh
 sleep 2
