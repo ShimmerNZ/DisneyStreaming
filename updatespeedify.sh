@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /home/pi/DisneyStreaming/
-wget -qO- https://get.speedify.com | sudo -E bash -
-sleep 5
-sudo apt-get install speedifyui
+sudo apt update 
+sudo apt upgrade speedifyui
+sudo apt upgrade speedify
 sleep 10
