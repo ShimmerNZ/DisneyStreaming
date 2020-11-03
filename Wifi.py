@@ -16,7 +16,7 @@ while True:
             time.sleep(30)
         else:
             time.sleep(30)
-            print("network ok", flush=True)
+            #print("network ok", flush=True)
     except subprocess.CalledProcessError:
         time.sleep(30)
-        print("network ok", flush=True)
+        #print("network ok", flush=True)

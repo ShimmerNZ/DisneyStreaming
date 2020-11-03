@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Update Speedify
+Comment=Pulls latest version of speedify software
+Icon=/usr/share/pixmaps/obconf.png
+Exec=/home/pi/updatespeedify.sh
+Type=Application
+Encoding=UTF-8
+Terminal=true
+StartupNotify=false
