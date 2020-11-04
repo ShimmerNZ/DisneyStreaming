@@ -296,9 +296,9 @@ class Mainframe(tk.Frame):
                                 #self.Adapter4 = self.Adapter4 + line.lstrip(' ')
                                 pattern = '\d+'
                                 result = re.findall(pattern, line.lstrip(' '))
-               #                 linkpercent=(int(int(result[0])/int(result[1])*100))
+                                linkpercent=(int(int(result[0])/int(result[1])*100))
                # modify as driver has changed to /100 even though /70 so wlan2 showing incorrectly
-                                linkpercent=(int(int(result[0])/70*100))
+                #                linkpercent=(int(int(result[0])/70*100))
                                 self.Adapter4 = self.Adapter4 + (str(linkpercent) + '%\n')
                             elif 'Not-Associated' in line:
                                 self.Adapter4 = self.Adapter4 + 'No signal' +'\n'
