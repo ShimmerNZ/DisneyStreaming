@@ -58,6 +58,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  ```
  ENABLE_SHARE=1  
  SHARE_INTERFACE="eth0"  
+ SHARE_WITHOUT_SPEEDIFY=1
  ```
  Save and Exit 
  ```
@@ -83,7 +84,6 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  sed -i 's/^MAKE="/MAKE="ARCH=arm\ /' dkms.conf
  sudo ./dkms-install.sh
  ```
- note to remove navigate to this directory and run sudo ./dkms-remove.sh
 
 ## Clone streaming repo and do the install  
  ``` 
@@ -140,7 +140,7 @@ https://www.raspberrypi.org/downloads/raspberry-pi-os/
  ```
  fix power saving
  ```
- sudo nano /etc/rc.localsudo
+ sudo nano /etc/rc.local
  ```
  add the following before exit 0
  ```
