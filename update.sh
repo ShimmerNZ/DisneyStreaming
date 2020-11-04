@@ -2,7 +2,7 @@
 cd /home/pi/DisneyStreaming/
 git pull origin master
 sudo cp /home/pi/DisneyStreaming/Update.txt /home/pi/Desktop/Update.desktop
-sudo cp /home/pi/DisneyStreaming/Speedify-Update.txt /home/pi/Desktop/Speedify-Update.desktop
+#sudo cp /home/pi/DisneyStreaming/Speedify-Update.txt /home/pi/Desktop/Speedify-Update.desktop
 sudo cp /home/pi/DisneyStreaming/Stream.txt /home/pi/Desktop/Stream.desktop
 sudo cp /home/pi/DisneyStreaming/Stream.txt /home/pi/.config/autostart/Stream.desktop
 sudo cp /home/pi/DisneyStreaming/Keyboard.txt /home/pi/Desktop/Keyboard.desktop
