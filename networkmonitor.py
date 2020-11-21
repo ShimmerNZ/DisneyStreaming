@@ -22,6 +22,7 @@ import subprocess
 import argparse
 import psutil
 import urllib.request
+import threading
 
 interface ="wlan0" # this is just a sample value
 
@@ -227,7 +228,7 @@ class Mainframe(tk.Frame):
 
         #call functions here
         self.GetTemp()
-        self.GetCPU()
+        threading.Thread(target=self.GetCPU()).start())
         self.GetState()
         self.GetAdapter()
         self.GetSpeed()
