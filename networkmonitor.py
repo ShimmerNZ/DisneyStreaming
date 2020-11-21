@@ -227,13 +227,13 @@ class Mainframe(tk.Frame):
         self.ignorepoll = 0
 
         #call functions here
-        threading.Thread(target=self.GetTemp().start()
+        threading.Thread(target=self.GetTemp).start()
         threading.Thread(target=self.GetCPU).start()
-        threading.Thread(target=self.GetState().start()
-        threading.Thread(target=self.GetAdapter().start()
-        threading.Thread(target=self.GetSpeed().start()
-        threading.Thread(target=self.GetCurrentServer().start()
-        threading.Thread(target=self.GetSubscription().start()
+        threading.Thread(target=self.GetState).start()
+        threading.Thread(target=self.GetAdapter).start()
+        threading.Thread(target=self.GetSpeed).start()
+        threading.Thread(target=self.GetCurrentServer).start()
+        threading.Thread(target=self.GetSubscription).start()
         
     def GetTemp(self):
         ## replace this with code to read sensor
