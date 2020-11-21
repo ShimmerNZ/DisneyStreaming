@@ -227,10 +227,10 @@ class Mainframe(tk.Frame):
         self.ignorepoll = 0
 
         #call functions here
-        threading.Thread(target=self.GetTemp).start()
+        self.GetTemp()
         self.GetCPU()
         self.GetState()
-        self.GetAdapter()
+        threading.Thread(target=self.GetAdapter).start()
         threading.Thread(target=self.GetSpeed).start()
         self.GetCurrentServer()
         self.GetSubscription()
