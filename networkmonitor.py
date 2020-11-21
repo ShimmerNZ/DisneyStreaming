@@ -228,7 +228,7 @@ class Mainframe(tk.Frame):
 
         #call functions here
         self.GetTemp()
-        threading.Thread(target=self.GetCPU()).start())
+        threading.Thread(target=self.GetCPU).start())
         self.GetState()
         self.GetAdapter()
         self.GetSpeed()
