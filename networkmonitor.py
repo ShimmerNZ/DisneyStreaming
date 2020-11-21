@@ -352,8 +352,8 @@ class Mainframe(tk.Frame):
         #(tx_prev, rx_prev) = (0,0)
         global tx
         global rx
-        if os.path.exists('/sys/class/net/connectify0/statistics/tx_bytes'):
-            with open('/sys/class/net/' + 'connectify0' + '/statistics/' + 'tx' + '_bytes', 'r') as f:
+        if os.path.exists('/sys/class/net/eth0/statistics/tx_bytes'):
+            with open('/sys/class/net/' + 'eth0' + '/statistics/' + 'tx' + '_bytes', 'r') as f:
                  try:
                      data = f.read();
                      tx= int(data)
@@ -362,8 +362,8 @@ class Mainframe(tk.Frame):
                      print('exception handled gracefully', flush=True)
         else:
             tx=0
-        if os.path.exists('/sys/class/net/connectify0/statistics/rx_bytes'):
-            with open('/sys/class/net/' + 'connectify0' + '/statistics/' + 'rx' + '_bytes', 'r') as f:
+        if os.path.exists('/sys/class/net/eth0/statistics/rx_bytes'):
+            with open('/sys/class/net/' + 'eth0' + '/statistics/' + 'rx' + '_bytes', 'r') as f:
                  try:
                      data = f.read();
                      rx=int(data)
