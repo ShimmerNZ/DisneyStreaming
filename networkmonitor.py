@@ -227,8 +227,8 @@ class Mainframe(tk.Frame):
         self.ignorepoll = 0
 
         #call functions here
-        threading.Thread(target=self.GetTemp).start()
-        threading.Thread(target=self.GetCPU).start()
+        self.GetTemp()
+        self.GetCPU()
         self.GetState()
         self.GetAdapter()
         threading.Thread(target=self.GetSpeed).start()
