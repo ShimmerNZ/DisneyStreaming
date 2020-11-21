@@ -208,8 +208,8 @@ class Mainframe(tk.Frame):
 
         #variable time
         self.TimerInterval = 50
-        self.TimerInterval2 = 3000
-        self.TimerInterval3 = 60000
+        self.TimerInterval2 = 60000
+        self.TimerInterval3 = 3000
         self.TimerInterval4 = 60000 # 1min poll for Sub count
         self.TempC = 0
         self.TempF = 0
