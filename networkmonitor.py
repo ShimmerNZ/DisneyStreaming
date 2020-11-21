@@ -229,11 +229,11 @@ class Mainframe(tk.Frame):
         #call functions here
         threading.Thread(target=self.GetTemp).start()
         threading.Thread(target=self.GetCPU).start()
-        threading.Thread(target=self.GetState).start()
-        threading.Thread(target=self.GetAdapter).start()
+        self.GetState()
+        self.GetAdapter()
         threading.Thread(target=self.GetSpeed).start()
-        threading.Thread(target=self.GetCurrentServer).start()
-        threading.Thread(target=self.GetSubscription).start()
+        self.GetCurrentServer()
+        self.GetSubscription()
         
     def GetTemp(self):
         ## replace this with code to read sensor
