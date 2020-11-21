@@ -141,9 +141,9 @@ class Mainframe(tk.Frame):
         tk.Label(self,text='Mbps', bg='#0b0c1b',fg='#9193a8', font=("HCo Gotham SSm",16)).grid(row=1, column=8, columnspan=2, sticky='W')
 
         self.TXspeed = tk.StringVar()
-        tk.Label(self,textvariable=self.TXspeed , bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",40)).grid(row=2, column=3, rowspan=2, columnspan=3)
+        tk.Label(self,textvariable=self.TXspeed , bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",40)).grid(row=2, column=6, rowspan=2, columnspan=3)
         self.RXspeed = tk.StringVar()
-        tk.Label(self,textvariable=self.RXspeed , bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",40)).grid(row=2, column=6, rowspan=2, columnspan=3)
+        tk.Label(self,textvariable=self.RXspeed , bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",40)).grid(row=2, column=3, rowspan=2, columnspan=3)
 
         #Adapter Stats
         tk.Label(self,text='CONNECTION TYPE  ', bg='#0b0c1b',fg='#fff', font=("HCo Gotham SSm",10)).grid(row=7, column=4)
