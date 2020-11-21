@@ -207,9 +207,9 @@ class Mainframe(tk.Frame):
        
 
         #variable time
-        self.TimerInterval = 300
-        self.TimerInterval2 = 2000
-        self.TimerInterval3 = 10000
+        self.TimerInterval = 200
+        self.TimerInterval2 = 1000
+        self.TimerInterval3 = 2000
         self.TimerInterval4 = 60000 # 1min poll for Sub count
         self.TempC = 0
         self.TempF = 0
@@ -227,13 +227,13 @@ class Mainframe(tk.Frame):
         self.ignorepoll = 0
 
         #call functions here
-        self.GetTemp()
+        threading.Thread(target=self.GetTemp().start()
         threading.Thread(target=self.GetCPU).start()
-        self.GetState()
-        self.GetAdapter()
-        self.GetSpeed()
-        self.GetCurrentServer()
-        self.GetSubscription()
+        threading.Thread(target=self.GetState().start()
+        threading.Thread(target=self.GetAdapter().start()
+        threading.Thread(target=self.GetSpeed().start()
+        threading.Thread(target=self.GetCurrentServer().start()
+        threading.Thread(target=self.GetSubscription().start()
         
     def GetTemp(self):
         ## replace this with code to read sensor
