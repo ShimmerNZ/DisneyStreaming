@@ -23,6 +23,7 @@ import argparse
 import psutil
 import urllib.request
 import threading
+import multiprocessing
 
 interface ="wlan0" # this is just a sample value
 
@@ -207,7 +208,7 @@ class Mainframe(tk.Frame):
        
 
         #variable time
-        self.TimerInterval = 200
+        self.TimerInterval = 50
         self.TimerInterval2 = 1000
         self.TimerInterval3 = 3000
         self.TimerInterval4 = 60000 # 1min poll for Sub count
@@ -231,7 +232,7 @@ class Mainframe(tk.Frame):
         threading.Thread(target=self.GetCPU).start()
         threading.Thread(target=self.GetState).start()
         threading.Thread(target=self.GetAdapter).start()
-        self.GetSpeed()
+        multiprocessing.Process(target=self.GetSpeed).start()
         threading.Thread(target=self.GetCurrentServer).start()
         self.GetSubscription()
         
