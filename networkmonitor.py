@@ -209,8 +209,8 @@ class Mainframe(tk.Frame):
 
         #variable time
         self.TimerInterval = 500
-        self.TimerInterval2 = 3000
-        self.TimerInterval3 = 5000
+        self.TimerInterval2 = 5000
+        self.TimerInterval3 = 10000
         self.TimerInterval4 = 60000 # 1min poll for Sub count
         self.TempC = 0
         self.TempF = 0
@@ -382,11 +382,11 @@ class Mainframe(tk.Frame):
         self.rxspeed=''
         self.txspeed=''
         if tx_prev > 0:
-            tx_speed = ((tx - tx_prev)/100000)*2
+            tx_speed = ((tx - tx_prev)/100000)
             #print('TX: ',round(tx_speed,1), 'Mbps')
             self.txspeed=str(round(tx_speed,1))
         if rx_prev > 0:
-            rx_speed = ((rx - rx_prev)/100000)*2
+            rx_speed = ((rx - rx_prev)/100000)
             #print('RX: ', round(rx_speed,1), 'Mbps')
             self.rxspeed=str(round(rx_speed,1))
         tx_prev = tx
