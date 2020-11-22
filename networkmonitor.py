@@ -209,8 +209,8 @@ class Mainframe(tk.Frame):
 
         #variable time
         self.TimerInterval = 50
-        self.TimerInterval2 = 1000
-        self.TimerInterval3 = 3000
+        self.TimerInterval2 = 3000
+        self.TimerInterval3 = 5000
         self.TimerInterval4 = 60000 # 1min poll for Sub count
         self.TempC = 0
         self.TempF = 0
@@ -228,12 +228,12 @@ class Mainframe(tk.Frame):
         self.ignorepoll = 0
 
         #call functions here
-        threading.Thread(target=self.GetTemp).start()
-        threading.Thread(target=self.GetCPU).start()
-        threading.Thread(target=self.GetState).start()
+        self.GetTemp()
+        self.GetCPU()
+        self.GetState()
         threading.Thread(target=self.GetAdapter).start()
-        multiprocessing.Process(target=self.GetSpeed).start()
-        threading.Thread(target=self.GetCurrentServer).start()
+        threading.Thread(target=self.GetSpeed).start()
+        self.GetCurrentServer()
         self.GetSubscription()
         
     def GetTemp(self):
