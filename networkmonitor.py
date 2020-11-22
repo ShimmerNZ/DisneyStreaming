@@ -246,14 +246,14 @@ class Mainframe(tk.Frame):
         self.TempF = round(float(1.8*float(cpu_temp))/1000+32,1)
         TempCheck=int(self.TempC)
         # Now repeat call
-        self.after(self.TimerInterval3,self.GetTemp)
+        self.after(1050,self.GetTemp)
 
     def GetCPU(self):
         self.CPUutil.set(self.CPUUtil)
         self.CPUUtil=psutil.cpu_percent(interval=None, percpu=False)
         self.CPUUtil=int(self.CPUUtil)
 
-        self.after(self.TimerInterval2,self.GetCPU)
+        self.after(1220,self.GetCPU)
 
     def GetState(self):
         self.Connectionstate.set(self.State)
@@ -266,7 +266,7 @@ class Mainframe(tk.Frame):
             self.State=(str(stateraw).replace('State.', '')) 
         # Logic to update the button at the top
 
-        self.after(self.TimerInterval2,self.GetState)
+        self.after(3050,self.GetState)
 
     def GetAdapter(self):
         self.Adapterstate1.set(self.Adapter1)
@@ -306,13 +306,13 @@ class Mainframe(tk.Frame):
                                 self.Adapter4 = self.Adapter4 + 'No signal' +'\n'
                     else:
                         self.Adapter4 = self.Adapter4 + '\n'
-        self.after(self.TimerInterval3,self.GetAdapter)
+        self.after(3606,self.GetAdapter)
 
     def GetCurrentServer(self):
         self.Currentserver.set(self.Server)
         servers=speedify.show_currentserver()
         self.Server=servers['friendlyName']
-        self.after(self.TimerInterval3,self.GetCurrentServer)
+        self.after(4102,self.GetCurrentServer)
 
     def connect(self, arg):
         checkState = self.State
@@ -382,16 +382,16 @@ class Mainframe(tk.Frame):
         self.rxspeed=''
         self.txspeed=''
         if tx_prev > 0:
-            tx_speed = ((tx - tx_prev)/100000)
+            tx_speed = ((tx - tx_prev)/100000)*1.5
             #print('TX: ',round(tx_speed,1), 'Mbps')
             self.txspeed=str(round(tx_speed,1))
         if rx_prev > 0:
-            rx_speed = ((rx - rx_prev)/100000)
+            rx_speed = ((rx - rx_prev)/100000)*1.5
             #print('RX: ', round(rx_speed,1), 'Mbps')
             self.rxspeed=str(round(rx_speed,1))
         tx_prev = tx
         rx_prev = rx
-        self.after(self.TimerInterval,self.GetSpeed)
+        self.after(500,self.GetSpeed)
 
 
 
