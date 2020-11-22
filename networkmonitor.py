@@ -372,6 +372,7 @@ class Mainframe(tk.Frame):
                      rx=int(data)
                  except:
                      rx=0
+                     print('exception handled gracefully', flush=True)
         else:
             rx=0
        # tx=self.get_bytes('tx')
