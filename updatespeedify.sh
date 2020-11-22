@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /home/pi/DisneyStreaming/
 sudo apt update 
-sudo apt upgrade speedifyui
-sudo apt upgrade speedify
+sudo apt upgrade -y speedifyui
+sudo apt upgrade -y speedify
 sleep 10
