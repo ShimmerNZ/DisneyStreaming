@@ -229,6 +229,8 @@ class Mainframe(tk.Frame):
         self.ignorepoll = 0
         self.tx_time_prev = 0
         self.rx_time_prev = 0
+        self.txseconds=0
+        self.rxseconds=0
 
         #call functions here -includes half arsed attempt at multi threading the getspeed as it kept getting pauses in display update
         self.GetTemp()
@@ -357,11 +359,20 @@ class Mainframe(tk.Frame):
         #(tx_prev, rx_prev) = (0,0)
         global tx
         global rx
+        global tx_prev
+        global rx_prev
+        global tx_time_prev
+        global rx_time_prev
+        self.TXspeed.set(self.txspeed)
+        self.RXspeed.set(self.rxspeed)
+        self.rxspeed=''
+        self.txspeed=''
         if os.path.exists('/sys/class/net/connectify0/statistics/tx_bytes'):
             with open('/sys/class/net/' + 'connectify0' + '/statistics/' + 'tx' + '_bytes', 'r') as f:
                  try:
                      data = f.read();
                      tx= int(data)
+                     self.txseconds=time.time()
                  except:
                      tx=0
                      print('exception handled gracefully', flush=True)
@@ -372,6 +383,7 @@ class Mainframe(tk.Frame):
                  try:
                      data = f.read();
                      rx=int(data)
+                     self.rxseconds=time.time()
                  except:
                      rx=0
                      print('exception handled gracefully', flush=True)
@@ -379,22 +391,13 @@ class Mainframe(tk.Frame):
             rx=0
        # tx=self.get_bytes('tx')
        # rx=self.get_bytes('rx')
-        global tx_prev
-        global rx_prev
-        global tx_time_prev
-        global rx_time_prev
-        self.TXspeed.set(self.txspeed)
-        self.RXspeed.set(self.rxspeed)
-        self.rxspeed=''
-        self.txspeed=''
+
         if tx_prev > 0:
-            txseconds=time.time()
             tx_speed = ((tx - tx_prev)/100000)*(1/(txseconds - self.tx_time_prev))
             #print(1/(seconds - time_prev),'TX: ',round(tx_speed,1), 'Mbps')
             self.txspeed=str(round(tx_speed,1))
             self.tx_time_prev = txseconds
         if rx_prev > 0:
-            rxseconds=time.time()
             rx_speed = ((rx - rx_prev)/100000)*(1/(rxseconds - self.rx_time_prev))
             #print('RX: ', round(rx_speed,1), 'Mbps')
             self.rxspeed=str(round(rx_speed,1))
