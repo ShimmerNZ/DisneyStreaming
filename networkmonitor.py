@@ -398,12 +398,12 @@ class Mainframe(tk.Frame):
             tx_speed = ((tx - tx_prev)/100000)*(1/(self.txseconds - self.tx_time_prev))
             #print(1/(seconds - time_prev),'TX: ',round(tx_speed,1), 'Mbps')
             self.txspeed=str(round(tx_speed,1))
-            self.tx_time_prev = txseconds
+            self.tx_time_prev = self.txseconds
         if rx_prev > 0:
             rx_speed = ((rx - rx_prev)/100000)*(1/(self.rxseconds - self.rx_time_prev))
             #print('RX: ', round(rx_speed,1), 'Mbps')
             self.rxspeed=str(round(rx_speed,1))
-            self.rx_time_prev = rxseconds
+            self.rx_time_prev = self.rxseconds
         tx_prev = tx
         rx_prev = rx
         self.after(501,self.GetSpeed)
