@@ -363,6 +363,8 @@ class Mainframe(tk.Frame):
         global rx_prev
         global tx_time_prev
         global rx_time_prev
+        global txseconds
+        global rxseconds
         self.TXspeed.set(self.txspeed)
         self.RXspeed.set(self.rxspeed)
         self.rxspeed=''
