@@ -397,7 +397,7 @@ class Mainframe(tk.Frame):
         tx_prev = tx
         rx_prev = rx
         time_prev = seconds
-        self.after(200,self.GetSpeed)
+        self.after(100,self.GetSpeed)
 
 
 
