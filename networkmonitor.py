@@ -227,6 +227,7 @@ class Mainframe(tk.Frame):
         self.CPUUtil = ''
         self.Subscount = 'checking latest stats'
         self.ignorepoll = 0
+        self.time_prev = 0
 
         #call functions here -includes half arsed attempt at multi threading the getspeed as it kept getting pauses in display update
         self.GetTemp()
@@ -379,13 +380,15 @@ class Mainframe(tk.Frame):
        # rx=self.get_bytes('rx')
         global tx_prev
         global rx_prev
+        global time_prev
+        seconds=time.time()
         self.TXspeed.set(self.txspeed)
         self.RXspeed.set(self.rxspeed)
         self.rxspeed=''
         self.txspeed=''
         if tx_prev > 0:
-            tx_speed = ((tx - tx_prev)/100000)*3.64
-            #print(seconds,'TX: ',round(tx_speed,1), 'Mbps')
+            tx_speed = ((tx - tx_prev)/100000)*(1/(seconds - time_prev))
+            print(seconds - time_prev,'TX: ',round(tx_speed,1), 'Mbps')
             self.txspeed=str(round(tx_speed,1))
         if rx_prev > 0:
             rx_speed = ((rx - rx_prev)/100000)*3.64
@@ -393,6 +396,7 @@ class Mainframe(tk.Frame):
             self.rxspeed=str(round(rx_speed,1))
         tx_prev = tx
         rx_prev = rx
+        time_prev = seconds
         self.after(200,self.GetSpeed)
 
 
