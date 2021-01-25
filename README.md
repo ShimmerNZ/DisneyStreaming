@@ -13,7 +13,7 @@
  I found the Speedify app was resource intensive especially when interface disconnected where it would consume 200% resource causing the Pi to overheat.
  I decided to build a seperate UI to control it as well as show up signal strength. Everythign else leverages the speedify back end.
 
- Note: As of 18th Oct 2020 this has not yet been tested in the wild to determine if this is going to work as expected.
+
 
  ![Front](/images/screen.jpg)
  ![Back view](/images/backview.jpg)
